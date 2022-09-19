@@ -103,9 +103,14 @@
 							  <input type="text" name="email" required="required"/>
 							  <label class="control-label" for="input"><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="96d3fbf7fffad6">[email&#160;protected]</a></label><i class="mtrl-select"></i>
 							</div>
-							<div class="form-group">	
+							<div class="form-group half">	
 							  <input type="text" name="phone" required="required"/>
 							  <label class="control-label" for="input">Phone No.</label><i class="mtrl-select"></i>
+							</div>
+							<div class="form-group half ">
+							<h6>Banner Image</h6>	
+							  <input type="file" name="banner" required="required"/>
+							 
 							</div>
 							<div class="form-group">	
 							  <input type="text" name="domain" required="required"/>
@@ -212,64 +217,7 @@
 							  <label class="control-label" for="input"><i class="fa fa-instagram"></i> Instagram</label><i class="mtrl-select"></i>
 							</div>
 							
-							<h5 class="f-title ext-margin"><i class="fa fa-sliders"></i> More Settings</h5>
-							<div class="page-viewers">
-								<div class="form-group half">	
-								  <select>
-									<option value="country">Who can friend you?</option>
-									  <option value="every">Every one</option>
-									  <option value="no-one">No one</option>
-								  </select>
-								</div>
-								<div class="form-group half">	
-								  <select>
-									<option value="country">Who can view your posts?</option>
-									  <option value="every">Every one</option>
-									  <option value="no-one">Friends only</option>
-								  </select>
-								</div>
-							</div>
-							<div class="onoff-options">
 							
-							
-								<div class="setting-row">
-									<span>Sub users</span>
-									<p>Enable this if you want people to follow you</p>
-									<input type="checkbox" id="switch01" /> 
-									<label for="switch01" data-on-label="ON" data-off-label="OFF"></label>
-								</div>
-								<div class="setting-row">
-									<span>Enable follow me</span>
-									<p>Enable this if you want people to follow you</p>
-									<input type="checkbox" id="switch02" /> 
-									<label for="switch02" data-on-label="ON" data-off-label="OFF"></label>
-								</div>
-								<div class="setting-row">
-									<span>Send me notifications</span>
-									<p>Send me notification emails my friends like, share or message me</p>
-									<input type="checkbox" id="switch03" /> 
-									<label for="switch03" data-on-label="ON" data-off-label="OFF"></label>
-								</div>
-								<div class="setting-row">
-									<span>Text messages</span>
-									<p>Send me messages to my cell phone</p>
-									<input type="checkbox" id="switch04" /> 
-									<label for="switch04" data-on-label="ON" data-off-label="OFF"></label>
-								</div>
-								<div class="setting-row">
-									<span>Enable tagging</span>
-									<p>Enable my friends to tag me on their posts</p>
-									<input type="checkbox" id="switch05" /> 
-									<label for="switch05" data-on-label="ON" data-off-label="OFF"></label>
-								</div>
-								<div class="setting-row">
-									<span>Enable sound Notification</span>
-									<p>You'll hear notification sound when someone sends you a private message</p>
-									<input type="checkbox" id="switch06" checked=""/> 
-									<label for="switch06" data-on-label="ON" data-off-label="OFF"></label>
-								</div>
-							
-						</div>
 							<div class="submit-btns">
 								<button type="button" class="mtr-btn"><span>Cancel</span></button>
 								<button type="submit" class="mtr-btn"><span>Save</span></button>

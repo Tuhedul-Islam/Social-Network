@@ -17,13 +17,13 @@ class RegisterNewUserController extends Controller
        // dd($request);
         
         $input = new User();
-        $input->first_name = $request->input('first_name');
-        $input->last_name = $request->input('last_name');
+        $input->full_name = $request->input('full_name');
+        $input->username = $request->input('username');
         $input->password  = Hash::make($request->password);
         
         $input->gender = $request->input('gender');
         $input->email = $request->input('email');
-        $input->username = $request->input('first_name');
+        
 
         $input->status_id = $request->input('status_id');
 

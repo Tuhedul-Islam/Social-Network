@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
+use App\Models\create_page;
 
 class FrontendController extends Controller
 {
@@ -74,5 +75,13 @@ class FrontendController extends Controller
     public function notification_page()
     {
         return view('frontend.page.notification_page');
+    }
+
+    public function my_page()
+    {
+        $my_page = create_page::all();
+       
+
+        return view('frontend.page.my_page',compact('my_page'));
     }
 }

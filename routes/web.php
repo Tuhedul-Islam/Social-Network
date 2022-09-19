@@ -192,6 +192,9 @@ Route::group(['middleware'=>'authCheck'],function (){
         Route::get('timeline-massage_box', [FrontendController::class, 'massage_box'])->name('massagebox');
         Route::get('timeline-notification_page', [FrontendController::class, 'notification_page'])->name('notification_page');
 
+        Route::get('My_page', [FrontendController::class, 'my_page'])->name('my_page');
+   
+
 
     });
 
@@ -212,6 +215,16 @@ Route::group(['middleware'=>'authCheck'],function (){
 
       Route::post('add-page', '\App\Http\Controllers\create_pageController@store')->name('store');
       Route::get('view-page', '\App\Http\Controllers\create_pageController@view_page')->name('view_page');
+
+    
+    });
+
+
+     Route::group(['name' => 'my_page', 'as' => 'my_page.'], function () 
+    {
+
+    
+      Route::get('view-my-page/{id}', '\App\Http\Controllers\my_pageController@view_page')->name('view_page');
 
     
     });

@@ -1,76 +1,43 @@
+@extends('frontend.index')
 
-
-<?php $__env->startSection('header'); ?>
+@section('header')
 <section>
+	@foreach($my_page as $data)
 		<div class="feature-photo">
-			<figure><img src="<?php echo e(asset('public/frontend/images/resources/timeline-1.jpg')); ?>" alt=""></figure>
-			<div class="add-btn">
-				<span>1205 followers</span>
-				<a href="#" title="" data-ripple="">Add Friend</a>
-			</div>
-			<form class="edit-phto">
-				<i class="fa fa-camera-retro"></i>
-				<label class="fileContainer">
-					Edit Cover Photo
-				<input type="file"/>
-				</label>
-			</form>
+			<figure><img src="{{asset('public/post/banner/'.$data->banner)}}" alt=""></figure>
+			
+			
 			<div class="container-fluid">
 				<div class="row merged">
 					<div class="col-lg-2 col-sm-3">
-						<div class="user-avatar">
-							<figure>
-								<img src="<?php echo e(asset('public/frontend/images/resources/user-avatar.jpg')); ?>" alt="">
-								<form class="edit-phto">
-									<i class="fa fa-camera-retro"></i>
-									<label class="fileContainer">
-										Edit Display Photo
-										<input type="file"/>
-									</label>
-								</form>
-							</figure>
-						</div>
+						
 					</div>
 					<div class="col-lg-10 col-sm-9">
 						<div class="timeline-info">
-
 							<ul>
 								<li class="admin-name">
-								  <h5><?php echo e($postview->username); ?></h5>
-								  <span>Group Admin</span>
+								  <h5>{{$data->page_name}}</h5>
+								  <span>{{$data->email}}</span>
 								</li>
-								<li>
-									<a class="active" href="<?php echo e(route('frontend.timeline')); ?>" title="" data-ripple="">time line</a>
-
-									<a class="" href="<?php echo e(route('frontend.photopage')); ?>" title="" data-ripple="">Photos</a>
-
-									<a class="" href="<?php echo e(route('frontend.videospage')); ?>" title="" data-ripple="">Videos</a>
-
-									<a class="" href="<?php echo e(route('frontend.friendspage')); ?>" title="" data-ripple="">Friends</a>
-
-									<a class="" href="<?php echo e(route('frontend.groupspage')); ?>" title="" data-ripple="">Groups</a>
-
-									<a class="" href="<?php echo e(route('frontend.aboutpage')); ?>" title="" data-ripple="">about</a>
-
-									
-								</li>
+								
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section><!-- top area -->
+		@endforeach
+	</section>
 
-<?php $__env->stopSection(); ?>
+@endsection
 
 
-<?php $__env->startSection('content'); ?>
+@section('content')
 <div class="col-lg-6">
 								<div class="central-meta">
 									<div class="new-postbox">
 										<figure>
-											<img src="<?php echo e(asset('public/frontend/images/resources/admin2.jpg')); ?>" alt="">
+											<img src="{{asset('public/frontend/images/resources/admin2.jpg')}}" alt="">
 										</figure>
 										<div class="newpst-input">
 											<form method="post">
@@ -115,14 +82,14 @@
 									<div class="user-post">
 										<div class="friend-info">
 											<figure>
-												<img src="<?php echo e(asset('public/frontend/images/resources/friend-avatar10.jpg')); ?>" alt="">
+												<img src="{{asset('public/frontend/images/resources/friend-avatar10.jpg')}}" alt="">
 											</figure>
 											<div class="friend-name">
 												<ins><a href="time-line.html" title="">Janice Griffith</a></ins>
 												<span>published: june,2 2018 19:PM</span>
 											</div>
 											<div class="post-meta">
-												<img src="<?php echo e(asset('public/frontend/images/resources/user-post.jpg')); ?>" alt="">
+												<img src="{{asset('public/frontend/images/resources/user-post.jpg')}}" alt="">
 												<div class="we-video-info">
 													<ul>
 														<li>
@@ -196,7 +163,7 @@
 											<ul class="we-comet">
 												<li>
 													<div class="comet-avatar">
-														<img src="<?php echo e(asset('public/frontend/images/resources/comet-1.jpg')); ?>" alt="">
+														<img src="{{asset('public/frontend/images/resources/comet-1.jpg')}}" alt="">
 													</div>
 													<div class="we-comment">
 														<div class="coment-head">
@@ -209,7 +176,7 @@
 													<ul>
 														<li>
 															<div class="comet-avatar">
-																<img src="<?php echo e(asset('public/frontend/images/resources/comet-2.jpg')); ?>" alt="">
+																<img src="{{asset('public/frontend/images/resources/comet-2.jpg')}}" alt="">
 															</div>
 															<div class="we-comment">
 																<div class="coment-head">
@@ -222,7 +189,7 @@
 														</li>
 														<li>
 															<div class="comet-avatar">
-																<img src="<?php echo e(asset('public/frontend/images/resources/comet-3.jpg')); ?>" alt="">
+																<img src="{{asset('public/frontend/images/resources/comet-3.jpg')}}" alt="">
 															</div>
 															<div class="we-comment">
 																<div class="coment-head">
@@ -237,7 +204,7 @@
 												</li>
 												<li>
 													<div class="comet-avatar">
-														<img src="<?php echo e(asset('public/frontend/images/resources/comet-1.jpg')); ?>" alt="">
+														<img src="{{asset('public/frontend/images/resources/comet-1.jpg')}}" alt="">
 													</div>
 													<div class="we-comment">
 														<div class="coment-head">
@@ -255,7 +222,7 @@
 												</li>
 												<li class="post-comment">
 													<div class="comet-avatar">
-														<img src="<?php echo e(asset('public/frontend/images/resources/comet-1.jpg')); ?>" alt="">
+														<img src="{{asset('public/frontend/images/resources/comet-1.jpg')}}" alt="">
 													</div>
 													<div class="post-comt-box">
 														<form method="post">
@@ -289,7 +256,7 @@
 									<div class="user-post">
 										<div class="friend-info">
 											<figure>
-												<img src="<?php echo e(asset('public/frontend/images/resources/nearly1.jpg')); ?>" alt="">
+												<img src="{{asset('public/frontend/images/resources/nearly1.jpg')}}" alt="">
 											</figure>
 											<div class="friend-name">
 												<ins><a href="time-line.html" title="">Sara Grey</a></ins>
@@ -370,7 +337,7 @@
 											<ul class="we-comet">
 												<li>
 													<div class="comet-avatar">
-														<img src="<?php echo e(asset('public/frontend/images/resources/comet-1.jpg')); ?>" alt="">
+														<img src="{{asset('public/frontend/images/resources/comet-1.jpg')}}" alt="">
 													</div>
 													<div class="we-comment">
 														<div class="coment-head">
@@ -384,7 +351,7 @@
 												</li>
 												<li>
 													<div class="comet-avatar">
-														<img src="<?php echo e(asset('public/frontend/images/resources/comet-2.jpg')); ?>" alt="">
+														<img src="{{asset('public/frontend/images/resources/comet-2.jpg')}}" alt="">
 													</div>
 													<div class="we-comment">
 														<div class="coment-head">
@@ -402,7 +369,7 @@
 												</li>
 												<li class="post-comment">
 													<div class="comet-avatar">
-														<img src="<?php echo e(asset('public/frontend/images/resources/comet-2.jpg')); ?>" alt="">
+														<img src="{{asset('public/frontend/images/resources/comet-2.jpg')}}" alt="">
 													</div>
 													<div class="post-comt-box">
 														<form method="post">
@@ -436,7 +403,7 @@
 									<div class="user-post">
 										<div class="friend-info">
 											<figure>
-												<img src="<?php echo e(asset('public/frontend/images/resources/nearly6.jpg')); ?>" alt="">
+												<img src="{{asset('public/frontend/images/resources/nearly6.jpg')}}" alt="">
 											</figure>
 											<div class="friend-name">
 												<ins><a href="time-line.html" title="">Sophia</a></ins>
@@ -521,7 +488,7 @@
 											<ul class="we-comet">
 												<li>
 													<div class="comet-avatar">
-														<img src="<?php echo e(asset('public/frontend/images/resources/comet-1.jpg')); ?>" alt="">
+														<img src="{{asset('public/frontend/images/resources/comet-1.jpg')}}" alt="">
 													</div>
 													<div class="we-comment">
 														<div class="coment-head">
@@ -535,7 +502,7 @@
 												</li>
 												<li>
 													<div class="comet-avatar">
-														<img src="<?php echo e(asset('public/frontend/images/resources/comet-2.jpg')); ?>" alt="">
+														<img src="{{asset('public/frontend/images/resources/comet-2.jpg')}}" alt="">
 													</div>
 													<div class="we-comment">
 														<div class="coment-head">
@@ -553,7 +520,7 @@
 												</li>
 												<li class="post-comment">
 													<div class="comet-avatar">
-														<img src="<?php echo e(asset('public/frontend/images/resources/comet-2.jpg')); ?>" alt="">
+														<img src="{{asset('public/frontend/images/resources/comet-2.jpg')}}" alt="">
 													</div>
 													<div class="post-comt-box">
 														<form method="post">
@@ -587,7 +554,7 @@
 									<div class="user-post">
 										<div class="friend-info">
 											<figure>
-												<img alt="" src="<?php echo e(asset('public/frontend/images/resources/friend-avatar10.jpg')); ?>">
+												<img alt="" src="{{asset('public/frontend/images/resources/friend-avatar10.jpg')}}">
 											</figure>
 											<div class="friend-name">
 												<ins><a title="" href="time-line.html">Janice Griffith</a></ins>
@@ -601,7 +568,7 @@
 												</div>
 											<div class="post-meta">
 												<div class="linked-image align-left">
-													<a title="" href="#"><img alt="" src="<?php echo e(asset('public/frontend/images/resources/page1.jpg')); ?>"></a>
+													<a title="" href="#"><img alt="" src="{{asset('public/frontend/images/resources/page1.jpg')}}"></a>
 												</div>
 												<div class="detail">
 													<span>Love Maid - ChillGroves</span>
@@ -675,5 +642,4 @@
 								</div>
 								</div>
 							</div><!-- centerl meta -->
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make('frontend.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp\htdocs\Mproject\social-network\resources\views/frontend/page/timeline.blade.php ENDPATH**/ ?>
+@endsection

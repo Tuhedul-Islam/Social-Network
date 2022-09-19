@@ -76,12 +76,12 @@
                            
                         {!! Form::open(array('url' => 'register', 'class' => 'validate-form', 'autocomplete'=>'off')) !!}
                             <div class="form-group">    
-                              <input type="text" name="first_name" required="required"/>
-                              <label class="control-label" for="input">First Name</label><i class="mtrl-select"></i>
+                              <input type="text" name="full_name" required="required"/>
+                              <label class="control-label" for="input">Full Name</label><i class="mtrl-select"></i>
                             </div>
                             <div class="form-group">    
-                              <input type="text" name="last_name" required="required"/>
-                              <label class="control-label" for="input"> Last Name</label><i class="mtrl-select"></i>
+                              <input type="text" name="username" required="required"/>
+                              <label class="control-label" for="input"> User Name</label><i class="mtrl-select"></i>
                             </div>
                             <div class="form-group">    
                               <input type="password" name="password" required="required"/>
@@ -101,7 +101,7 @@
                               
                              <div class="form-group">    
                               <input type="hidden" name="status_id" value="1" required="required"/>
-                              
+                             
                             </div>
 
                             </div>
