@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2022 at 06:29 PM
+-- Generation Time: Sep 28, 2022 at 12:04 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -84,9 +84,9 @@ CREATE TABLE `create_pages` (
 --
 
 INSERT INTO `create_pages` (`id`, `user_id`, `page_name`, `sub_title`, `email`, `phone`, `banner`, `domain`, `states`, `city`, `additional_info`, `facebook_link`, `twitter`, `instagram`, `created_at`, `updated_at`) VALUES
-(1, 1, 'sd', 'ds', 'admin@admin.com', 32545, '', 'dfd', 'ALA', 'df', 'adsfas', 'sfasaffs', NULL, 'fsafasasfsc', '2022-09-17 12:59:22', '2022-09-13 06:52:23'),
 (2, 2, 'all In one', 'one', 'adm54in@gmail.com', 325455852, '58097.PNG', 'www.f.com', 'ALB', 'dhaka', 'dhaka mirpur', 'sfasaffs', NULL, 'sdfds', '2022-09-17 13:21:58', '2022-09-16 11:18:08'),
-(3, 811, 'sd', 'sds', 'admin@gmail.com', 32545, '56552.PNG', 'sds', 'ALB', 'sdsd', 'sdds', 'ds', NULL, 'sd', '2022-09-17 13:18:07', '2022-09-16 11:22:13');
+(3, 811, 'sd', 'sds', 'admin@gmail.com', 32545, '56552.PNG', 'sds', 'ALB', 'sdsd', 'sdds', 'ds', NULL, 'sd', '2022-09-17 13:18:07', '2022-09-16 11:22:13'),
+(812, 1, 'one page', 'All in one page', 'meheraz@gmail.com', 254836942, '68794.jpg', 'www.h.com', 'BGD', 'dhaka', 'mirpur 111', 'www.com', NULL, 'www.com', '2022-09-20 00:12:30', '2022-09-20 00:12:30');
 
 -- --------------------------------------------------------
 
@@ -103,6 +103,34 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `friends`
+--
+
+CREATE TABLE `friends` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `user_request` int(11) NOT NULL,
+  `friend_id` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 0,
+  `request_sent` tinyint(1) DEFAULT 0,
+  `cancel_request` tinyint(1) DEFAULT 0,
+  `delete_friend` tinyint(1) DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `friends`
+--
+
+INSERT INTO `friends` (`id`, `user_request`, `friend_id`, `status`, `request_sent`, `cancel_request`, `delete_friend`, `created_at`, `updated_at`) VALUES
+(18, 1, 2, 0, 1, 0, 0, '2022-09-27 22:33:05', '2022-09-27 22:33:05'),
+(19, 1, 810, 1, 1, 0, 0, '2022-09-28 04:36:07', '2022-09-27 22:35:45'),
+(20, 1, 812, 1, 1, 0, 0, '2022-09-28 04:36:01', '2022-09-27 22:35:53'),
+(21, 2, 1, 0, 1, 0, 0, '2022-09-28 02:48:56', '2022-09-28 02:48:56');
 
 -- --------------------------------------------------------
 
@@ -620,6 +648,7 @@ CREATE TABLE `users` (
   `designation` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `photo` varchar(255) DEFAULT NULL,
   `status_id` tinyint(1) DEFAULT NULL,
+  `friend_status` tinyint(1) NOT NULL DEFAULT 0 COMMENT '1=approved,2=pending,3=deleted',
   `employee_status` int(11) DEFAULT NULL,
   `employee_id` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `employee_designation` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -633,19 +662,21 @@ CREATE TABLE `users` (
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL
+  `updated_at` datetime NOT NULL,
+  `profile_image` varchar(255) DEFAULT NULL,
+  `profile_banner` varchar(255) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `role_id`, `org_id`, `full_name`, `email`, `gender`, `contact_no`, `username`, `password`, `designation`, `photo`, `status_id`, `employee_status`, `employee_id`, `employee_designation`, `divisional_office`, `district_office`, `circle_office`, `phn_personal`, `email_personal`, `process_sms_alert`, `remember_token`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, '1', NULL, 'System', NULL, NULL, NULL, 'admin', '$2y$10$DGXfPihHBrxoAzBVt/T8Ne9YZh8Aph/ey8I.DzOiE0QDahCit74si', NULL, '628b8528559d6620ba0faac32f3219840.png', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'llzSHjksVDxNhFj2EGW5neiQNTycROLVMRzqhULn3uIZeUiddWgN1ECKxVXl', 44, 1, '2015-02-15 04:21:06', '2022-05-23 12:59:20'),
-(811, NULL, NULL, 'd', 'a@gmail.com', 'male', NULL, 'd', '$2y$10$vdMJj9plQE8S70UdQc5Gge1E9itvPo36ev2o3j9Lx2XSh59M2bs1i', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:22:46', '2022-09-12 17:22:46'),
-(810, NULL, NULL, 'ridoy', 'admind@gmail.com', 'male', NULL, '1', '$2y$10$SPHzQTwTi8vCBCzFB6zU1OMvD.xTv8/N57wf24.kdKBu1dxF/9p1m', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:20:16', '2022-09-12 17:20:16'),
-(2, '1', NULL, 'Meheraz', 'admin@gmail.com', 'male', NULL, 'Meheraz1', '$2y$10$FpN46FmcvQjW5bFzXmRWeOd03QPbhO4F4cg1E2y5TPsX7dK7H.Z0u', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:08:54', '2022-09-12 17:08:54'),
-(812, NULL, NULL, 'Meheraz istiak', 'f@gmail.com', 'male', NULL, 'meheraz1', '$2y$10$pS485Qb3MpFSk9QrfO0wJ.EDYLLnW/TlkQERtVCA97RSRsXLyGPg6', NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-16 17:04:50', '2022-09-16 17:04:50');
+INSERT INTO `users` (`id`, `role_id`, `org_id`, `full_name`, `email`, `gender`, `contact_no`, `username`, `password`, `designation`, `photo`, `status_id`, `friend_status`, `employee_status`, `employee_id`, `employee_designation`, `divisional_office`, `district_office`, `circle_office`, `phn_personal`, `email_personal`, `process_sms_alert`, `remember_token`, `created_by`, `updated_by`, `created_at`, `updated_at`, `profile_image`, `profile_banner`) VALUES
+(1, '1', NULL, 'System', NULL, NULL, NULL, 'admin', '$2y$10$DGXfPihHBrxoAzBVt/T8Ne9YZh8Aph/ey8I.DzOiE0QDahCit74si', NULL, '628b8528559d6620ba0faac32f3219840.png', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'NOPqL3H0XFg1fFHsrHJBI2IK4YBCjfp5edABo5jHjmq7dScd0pahs8dTg6Do', 44, 1, '2015-02-15 04:21:06', '2022-09-28 06:43:36', '72805.png', '72805.jpg'),
+(811, NULL, NULL, 'd', 'a@gmail.com', 'male', NULL, 'd', '$2y$10$vdMJj9plQE8S70UdQc5Gge1E9itvPo36ev2o3j9Lx2XSh59M2bs1i', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:22:46', '2022-09-12 17:22:46', NULL, NULL),
+(810, NULL, NULL, 'ridoy', 'admind@gmail.com', 'male', NULL, '1', '$2y$10$SPHzQTwTi8vCBCzFB6zU1OMvD.xTv8/N57wf24.kdKBu1dxF/9p1m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:20:16', '2022-09-12 17:20:16', NULL, NULL),
+(2, '1', NULL, 'Meheraz', 'admin@gmail.com', 'male', NULL, 'Meheraz1', '$2y$10$FpN46FmcvQjW5bFzXmRWeOd03QPbhO4F4cg1E2y5TPsX7dK7H.Z0u', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:08:54', '2022-09-12 17:08:54', NULL, NULL),
+(812, NULL, NULL, 'Meheraz istiak', 'f@gmail.com', 'male', NULL, 'meheraz', '$2y$10$pS485Qb3MpFSk9QrfO0wJ.EDYLLnW/TlkQERtVCA97RSRsXLyGPg6', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-16 17:04:50', '2022-09-16 17:04:50', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -669,6 +700,12 @@ ALTER TABLE `create_pages`
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indexes for table `friends`
+--
+ALTER TABLE `friends`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `migrations`
@@ -744,13 +781,19 @@ ALTER TABLE `activity`
 -- AUTO_INCREMENT for table `create_pages`
 --
 ALTER TABLE `create_pages`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=812;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=813;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `friends`
+--
+ALTER TABLE `friends`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `migrations`

@@ -1,11 +1,11 @@
-
+ 
 
 <?php $__env->startSection('header'); ?>
 <section>
 		<div class="feature-photo">
 			<figure><img src="<?php echo e(asset('public/frontend/images/resources/timeline-1.jpg')); ?>" alt=""></figure>
 			<div class="add-btn">
-				<span>1205 followers</span>
+				<span> followers</span>
 				<a href="#" title="" data-ripple="">Add Friend</a>
 			</div>
 			<form class="edit-phto">
@@ -38,21 +38,7 @@
 								  <h5>Janice Griffith</h5>
 								  <span>Group Admin</span>
 								</li>
-								<li>
-									<a class="active" href="<?php echo e(route('frontend.timeline')); ?>" title="" data-ripple="">time line</a>
-
-									<a class="" href="<?php echo e(route('frontend.photopage')); ?>" title="" data-ripple="">Photos</a>
-
-									<a class="" href="<?php echo e(route('frontend.videospage')); ?>" title="" data-ripple="">Videos</a>
-
-									<a class="" href="<?php echo e(route('frontend.friendspage')); ?>" title="" data-ripple="">Friends</a>
-
-									<a class="" href="<?php echo e(route('frontend.groupspage')); ?>" title="" data-ripple="">Groups</a>
-
-									<a class="" href="<?php echo e(route('frontend.aboutpage')); ?>" title="" data-ripple="">about</a>
-
-									
-								</li>
+								
 							</ul>
 						</div>
 					</div>
@@ -71,9 +57,18 @@
 									<?php $__currentLoopData = $my_page; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 									<ul class="list-group">
 
-										  <li class="list-group-item"><a href="<?php echo e(route('my_page.view_page',$data->id)); ?>"><?php echo e($data->page_name); ?></a></li>
+										  <li class="list-group-item bg-info text-white mb-2">
+										  	<a href="<?php echo e(route('my_page.view_page',$data->id)); ?>"><?php echo e($data->page_name); ?></a>
+										  	<a href="<?php echo e(route('create_page.edit_page',$data->id)); ?>" class="btn btn-info btn-xs" style="margin-left: 527px;" > <i class='fa fa-edit' style='color: black;  '></i></a>
+
+										  	<a href="<?php echo e(route('create_page.delete_page',$data->id)); ?>" class="btn btn-info btn-xs" > <i class='fa fa-remove'></i></a>
+
+
+										  </li>
 										  
 									</ul>
+
+									
 									<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>	
 									
 								</div><!-- add post new box -->

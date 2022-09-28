@@ -184,6 +184,7 @@ Route::group(['middleware'=>'authCheck'],function (){
         Route::get('timeline-video', [FrontendController::class, 'videos_page'])->name('videospage');
         Route::get('timeline-photo', [FrontendController::class, 'photo_page'])->name('photopage');
         Route::get('timeline-friend', [FrontendController::class, 'friends_page'])->name('friendspage');
+        
         Route::get('timeline-groups', [FrontendController::class, 'groups_page'])->name('groupspage');
         Route::get('timeline-about', [FrontendController::class, 'about_page'])->name('aboutpage');
 
@@ -191,6 +192,7 @@ Route::group(['middleware'=>'authCheck'],function (){
         Route::get('timeline-edit_password', [FrontendController::class, 'edit_password'])->name('edit_password');
         Route::get('timeline-massage_box', [FrontendController::class, 'massage_box'])->name('massagebox');
         Route::get('timeline-notification_page', [FrontendController::class, 'notification_page'])->name('notification_page');
+
 
         Route::get('My_page', [FrontendController::class, 'my_page'])->name('my_page');
    
@@ -210,11 +212,28 @@ Route::group(['middleware'=>'authCheck'],function (){
     });
 
 
+      Route::group(['name' => 'profile', 'as' => 'profile.'], function () 
+    {
+
+      Route::get('edit_profile', '\App\Http\Controllers\profileController@index')->name('index');
+      Route::post('store-profile/{id}', '\App\Http\Controllers\profileController@store')->name('store');
+      Route::get('view-profile', '\App\Http\Controllers\profileController@view_post')->name('view_profile');
+
+    
+    });
+
+
      Route::group(['name' => 'create_page', 'as' => 'create_page.'], function () 
     {
 
       Route::post('add-page', '\App\Http\Controllers\create_pageController@store')->name('store');
       Route::get('view-page', '\App\Http\Controllers\create_pageController@view_page')->name('view_page');
+
+       Route::get('edit-my-page/{id}', '\App\Http\Controllers\create_pageController@edit_page')->name('edit_page');
+
+      Route::get('delete-my-page/{id}', '\App\Http\Controllers\create_pageController@delete_page')->name('delete_page');
+
+      Route::POST('update-my-page/{id}', '\App\Http\Controllers\create_pageController@update_page')->name('update_page');
 
     
     });
@@ -223,12 +242,19 @@ Route::group(['middleware'=>'authCheck'],function (){
      Route::group(['name' => 'my_page', 'as' => 'my_page.'], function () 
     {
 
-    
-      Route::get('view-my-page/{id}', '\App\Http\Controllers\my_pageController@view_page')->name('view_page');
-
-    
+      Route::get('view-my-page/{id}', '\App\Http\Controllers\my_pageController@view_page')->name('view_page'); 
     });
 
+
+  Route::group(['name' => 'friend', 'as' => 'friend.'], function () 
+    {
+
+      Route::get('add-friend/{id}', '\App\Http\Controllers\friendController@addfriend')->name('addfriend'); 
+      Route::get('confrim-friend/{id}', '\App\Http\Controllers\friendController@confrimfriend')->name('confrimfriend'); 
+      Route::get('remove-friend/{id}', '\App\Http\Controllers\friendController@removefriend')->name('removefriend'); 
+
+
+    });
 
 
         

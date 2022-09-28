@@ -1,11 +1,11 @@
-@extends('frontend.index')
 
-@section('header')
+
+<?php $__env->startSection('header'); ?>
 <section>
 		<div class="feature-photo">
-			<figure><img src="{{asset('public/profile/profile_banner/'.$image->profile_banner)}}" alt=""></figure>
+			<figure><img src="<?php echo e(asset('public/profile/profile_banner/'.$image->profile_banner)); ?>" alt=""></figure>
 			<div class="add-btn">
-				<span>{{$requestcount}} followers</span>
+				<span><?php echo e($requestcount); ?> followers</span>
 				<a href="#" title="" data-ripple="">Add Friend</a>
 			</div>
 			<form class="edit-phto">
@@ -20,7 +20,7 @@
 					<div class="col-lg-2 col-sm-3">
 						<div class="user-avatar">
 							<figure>
-								<img src="{{asset('public/profile/profile_image/'.$image->profile_image)}}" alt="">
+								<img src="<?php echo e(asset('public/profile/profile_image/'.$image->profile_image)); ?>" alt="">
 								<form class="edit-phto">
 									<i class="fa fa-camera-retro"></i>
 									<label class="fileContainer">
@@ -39,12 +39,12 @@
 								  <span>Group Admin</span>
 								</li>
 								<li>
-									<a class="" href="{{route('frontend.timeline')}}" title="" data-ripple="">time line</a>
-									<a class="" href="{{route('frontend.photopage')}}" title="" data-ripple="">Photos</a>
-									<a class="active" href="{{route('frontend.videospage')}}" title="" data-ripple="">Videos</a>
-									<a class="" href="{{route('frontend.friendspage')}}" title="" data-ripple="">Friends</a>
-									<a class="" href="{{route('frontend.groupspage')}}" title="" data-ripple="">Groups</a>
-									<a class="" href="{{route('frontend.aboutpage')}}" title="" data-ripple="">about</a>
+									<a class="" href="<?php echo e(route('frontend.timeline')); ?>" title="" data-ripple="">time line</a>
+									<a class="" href="<?php echo e(route('frontend.photopage')); ?>" title="" data-ripple="">Photos</a>
+									<a class="active" href="<?php echo e(route('frontend.videospage')); ?>" title="" data-ripple="">Videos</a>
+									<a class="" href="<?php echo e(route('frontend.friendspage')); ?>" title="" data-ripple="">Friends</a>
+									<a class="" href="<?php echo e(route('frontend.groupspage')); ?>" title="" data-ripple="">Groups</a>
+									<a class="" href="<?php echo e(route('frontend.aboutpage')); ?>" title="" data-ripple="">about</a>
 									
 								</li>
 							</ul>
@@ -55,15 +55,15 @@
 		</div>
 	</section><!-- top area -->
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="col-lg-6">
 								<div class="central-meta">
 									<ul class="photos">
 										<li>
-											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="{{asset('public/frontend/images/resources/photo1.jpg')}}" alt="">
+											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="<?php echo e(asset('public/frontend/images/resources/photo1.jpg')); ?>" alt="">
 												<i>
 													<svg version="1.1" class="play" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="40px" width="40px"
 													 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
@@ -75,7 +75,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="{{asset('public/frontend/images/resources/photo2.jpg')}}" alt="">
+											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="<?php echo e(asset('public/frontend/images/resources/photo2.jpg')); ?>" alt="">
 												<i>
 													<svg version="1.1" class="play" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="40px" width="40px"
 													 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
@@ -87,7 +87,7 @@
 												</a>
 											</li>
 										<li>
-											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="{{asset('public/frontend/images/resources/photo3.jpg')}}" alt="">
+											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="<?php echo e(asset('public/frontend/images/resources/photo3.jpg')); ?>" alt="">
 												<i>
 													<svg version="1.1" class="play" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="40px" width="40px"
 													 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
@@ -99,7 +99,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="{{asset('public/frontend/images/resources/photo4.jpg')}}" alt="">
+											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="<?php echo e(asset('public/frontend/images/resources/photo4.jpg')); ?>" alt="">
 												<i>
 													<svg version="1.1" class="play" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="40px" width="40px"
 													 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
@@ -111,7 +111,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="{{asset('public/frontend/images/resources/photo5.jpg')}}" alt="">
+											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="<?php echo e(asset('public/frontend/images/resources/photo5.jpg')); ?>" alt="">
 												<i>
 													<svg version="1.1" class="play" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="40px" width="40px"
 													 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
@@ -123,7 +123,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="{{asset('public/frontend/images/resources/photo6.jpg')}}" alt="">
+											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="<?php echo e(asset('public/frontend/images/resources/photo6.jpg')); ?>" alt="">
 												<i>
 													<svg version="1.1" class="play" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="40px" width="40px"
 													 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
@@ -135,7 +135,7 @@
 												</a>
 											</li>
 										<li>
-											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="{{asset('public/frontend/images/resources/photo7.jpg')}}" alt="">
+											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="<?php echo e(asset('public/frontend/images/resources/photo7.jpg')); ?>" alt="">
 												<i>
 													<svg version="1.1" class="play" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="40px" width="40px"
 													 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
@@ -147,7 +147,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="{{asset('public/frontend/images/resources/photo8.jpg')}}" alt="">
+											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="<?php echo e(asset('public/frontend/images/resources/photo8.jpg')); ?>" alt="">
 												<i>
 													<svg version="1.1" class="play" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="40px" width="40px"
 													 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
@@ -159,7 +159,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="{{asset('public/frontend/images/resources/photo9.jpg')}}" alt="">
+											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="<?php echo e(asset('public/frontend/images/resources/photo9.jpg')); ?>" alt="">
 												<i>
 													<svg version="1.1" class="play" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="40px" width="40px"
 													 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
@@ -171,7 +171,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="{{asset('public/frontend/images/resources/photo10.jpg')}}" alt="">
+											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="<?php echo e(asset('public/frontend/images/resources/photo10.jpg')); ?>" alt="">
 												<i>
 													<svg version="1.1" class="play" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="40px" width="40px"
 													 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
@@ -183,7 +183,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="{{asset('public/frontend/images/resources/photo11.jpg')}}" alt="">
+											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="<?php echo e(asset('public/frontend/images/resources/photo11.jpg')); ?>" alt="">
 												<i>
 													<svg version="1.1" class="play" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="40px" width="40px"
 													 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
@@ -195,7 +195,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="{{asset('public/frontend/images/resources/photo12.jpg')}}" alt="">
+											<a href="https://www.youtube.com/watch?v=MIbbtEjdYrc" title="" data-strip-group="mygroup" class="strip" data-strip-options="width: 700,height: 450,youtube: { autoplay: 1 }"><img src="<?php echo e(asset('public/frontend/images/resources/photo12.jpg')); ?>" alt="">
 												<i>
 													<svg version="1.1" class="play" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" height="40px" width="40px"
 													 viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
@@ -210,4 +210,5 @@
 									<div class="lodmore"><button class="btn-view btn-load-more"></button></div>
 								</div><!-- photos -->
 							</div><!-- centerl meta -->
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp\htdocs\Mproject\social-network\resources\views/frontend/page/videospage.blade.php ENDPATH**/ ?>

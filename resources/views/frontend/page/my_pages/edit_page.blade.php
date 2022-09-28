@@ -3,9 +3,9 @@
 @section('header')
 <section>
 		<div class="feature-photo">
-			<figure><img src="{{asset('public/profile/profile_banner/'.$image->profile_banner)}}" alt=""></figure>
+			<figure><img src="{{asset('public/frontend/images/resources/timeline-1.jpg')}}" alt=""></figure>
 			<div class="add-btn">
-				<span>{{$requestcount}} followers</span>
+				<span>1205 followers</span>
 				<a href="#" title="" data-ripple="">Add Friend</a>
 			</div>
 			<form class="edit-phto">
@@ -20,7 +20,7 @@
 					<div class="col-lg-2 col-sm-3">
 						<div class="user-avatar">
 							<figure>
-								<img src="{{asset('public/profile/profile_image/'.$image->profile_image)}}" alt="">
+								<img src="{{asset('public/frontend/images/resources/user-avatar.jpg')}}" alt="">
 								<form class="edit-phto">
 									<i class="fa fa-camera-retro"></i>
 									<label class="fileContainer">
@@ -38,15 +38,7 @@
 								  <h5>Janice Griffith</h5>
 								  <span>Group Admin</span>
 								</li>
-								<li>
-									<a class="" href="{{route('frontend.timeline')}}" title="" data-ripple="">time line</a>
-									<a class="" href="{{route('frontend.photopage')}}" title="" data-ripple="">Photos</a>
-									<a class="" href="{{route('frontend.videospage')}}" title="" data-ripple="">Videos</a>
-									<a class="" href="{{route('frontend.friendspage')}}" title="" data-ripple="">Friends</a>
-									<a class="" href="{{route('frontend.groupspage')}}" title="" data-ripple="">Groups</a>
-									<a class="" href="{{route('frontend.aboutpage')}}" title="" data-ripple="">about</a>
-									
-								</li>
+								
 							</ul>
 						</div>
 					</div>
@@ -89,76 +81,108 @@
 				<div class="central-meta">
 					<div class="editing-info">
 						<h5 class="f-title"><i class="ti-info-alt"></i> Create favourite Page</h5>
-						<form method="post" action="{{route('create_page.store')}}" enctype="multipart/form-data">
+						<form method="post" action="{{route('create_page.update_page',$create_page->id)}}" enctype="multipart/form-data">
 							@csrf
+
 							<div class="form-group half">	
-							  <input type="text" name="page_name" id="page_name" required="required"/>
+							  <input type="text" name="page_name" id="page_name" required="required"
+                                     value="{{$create_page->page_name}}"
+							  />
 							  <label class="control-label" for="input">Page Name</label><i class="mtrl-select"></i>
 							</div>
+
 							<div class="form-group half">	
-							  <input type="text" name="sub_title" required="required"/>
+							  <input type="text" name="sub_title" required="required"
+							   value="{{$create_page->sub_title}}"
+							  />
 							  <label class="control-label" for="input">Sub Title</label><i class="mtrl-select"></i>
 							</div>
+
 							<div class="form-group">	
-							  <input type="text" name="email" required="required"/>
+							  <input type="text" name="email" required="required" 
+
+                                      value="{{$create_page->email}}"
+							  />
 							  <label class="control-label" for="input"><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="96d3fbf7fffad6">[email&#160;protected]</a></label><i class="mtrl-select"></i>
 							</div>
+
 							<div class="form-group half">	
-							  <input type="text" name="phone" required="required"/>
+							  <input type="text" name="phone" required="required" 
+							  value="{{$create_page->phone}}"
+							  />
 							  <label class="control-label" for="input">Phone No.</label><i class="mtrl-select"></i>
 							</div>
+
 							<div class="form-group half ">
 							<h6>Banner Image</h6>	
-							  <input type="file" name="banner" required="required"/>
+							  <input type="file" name="banner" required="required"
+							  value="{{$create_page->banner}}"
+
+							  />
 							 
 							</div>
 							<div class="form-group">	
-							  <input type="text" name="domain" required="required"/>
+							  <input type="text" name="domain" required="required"
+							  value="{{$create_page->domain}}"
+							  />
 							  <label class="control-label" for="input">www.yourdomain.com</label><i class="mtrl-select"></i>
 							</div>											
 							<div class="form-group">	
-							  <select name="states">
+							  <select name="states"
+							  value="{{$create_page->states}}"
+							  >
 								<option value="country">Country</option>
-								  <option value="AFG">Afghanistan</option>
-								  <option value="ALA">Ƭand Islands</option>
-								  <option value="ALB">Albania</option>
-								  <option value="DZA">Algeria</option>
-								  
-								  <option value="BGD">Bangladesh</option>
+								  <option value="Afghanistan" {{$create_page->states=="Afghanistan"?'selected':''}}>Afghanistan</option>
+
+								  <option value="Ƭand Islands"{{$create_page->states=="Ƭand Islands"?'selected':''}}>Ƭand Islands</option>
+
+								  <option value="Albania"{{$create_page->states=="Albania"?'selected':''}}>Albania</option>
+
+								  <option value="Algeria"{{$create_page->states=="Albania"?'selected':''}}>Algeria</option>
+
+								
+								  <option value="Bangladesh" {{$create_page->states=="Bangladesh"?'selected':''}}>Bangladesh</option>
 								  
 								 
 							  </select>
 							</div>
 							<div class="form-group">	
-							  <input type="text" name="city" required="required"/>
+							  <input type="text" name="city" required="required"
+							  value="{{$create_page->city}}"
+							  />
 							  <label class="control-label" for="input">City</label><i class="mtrl-select"></i>
 							</div>
 							<div class="form-group">	
-							  <textarea rows="4" name="additional_info" id="textarea" required="required"></textarea>
+							  <textarea rows="4" name="additional_info" id="textarea" required="required">{{$create_page->additional_info}}</textarea>
 							  <label class="control-label" for="textarea">Additional Info</label><i class="mtrl-select"></i>
 							</div>
 							
 							<h5 class="f-title ext-margin"><i class="ti-share"></i> Your Social Accounts</h5>
-							
 							<div class="form-group">	
-							  <input type="text" name="facebook_link" required="required"/>
+							  <input type="text" name="facebook_link" required="required"
+							  value="{{$create_page->facebook_link}}"
+							  />
 							  <label class="control-label" for="input"><i class="fa fa-facebook-square"></i> Facebook</label><i class="mtrl-select"></i>
 							</div>
 
 							<div class="form-group">	
-							  <input type="text" name="twitter" required="required"/>
+							  <input type="text" name="twitter" required="required"
+							  value="{{$create_page->twitter}}"
+							  />
 							  <label class="control-label" for="input"><i class="fa fa-twitter-square"></i> Twitter</label><i class="mtrl-select"></i>
 							</div>
 
 							<div class="form-group">	
-							  <input type="text" name="instagram" required="required"/>
+							  <input type="text" name="instagram" required="required"
+							  value="{{$create_page->instagram}}"
+							  />
 							  <label class="control-label" for="input"><i class="fa fa-instagram"></i> Instagram</label><i class="mtrl-select"></i>
 							</div>
 							
 							
 							<div class="submit-btns">
 								<button type="button" class="mtr-btn"><span>Cancel</span></button>
-								<button type="submit" class="mtr-btn"><span>Save</span></button>
+								<button type="submit" class="mtr-btn"><span>update</span></button>
 							</div>
 						</form>
 					</div>
