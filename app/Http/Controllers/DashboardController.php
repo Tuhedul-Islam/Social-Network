@@ -4,6 +4,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Settings;
+use Illuminate\Support\Facades\Auth;
+
+use App\Models\Post;
+
+use App\Models\create_page;
+
+use App\Models\User;
+
+use App\Models\Friend;
+
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -21,9 +32,62 @@ class DashboardController extends Controller
     }
 
 
-    public function homePage(){
+    public function UserIndex()
+    {
 
-        return view('frontend.home-page');
+
+        $data['title']=Settings::select('site_title')->first();
+
+        $user = User::where('role_id',1)->get();
+
+        return view('old_frontend.all_user',$data,compact('user'));
+    }
+
+
+    public function all_user_post($id)
+    {
+
+
+        $data['title']=Settings::select('site_title')->first();
+
+        
+
+        $post = DB::table('posts')
+                         ->leftJoin('users','users.id','posts.user_id')
+                         ->select('posts.*','users.profile_image')
+                         ->where('user_id',$id)
+                         ->get();
+                         // dd($post);
+        
+        return view('old_frontend.all_user_post',$data,compact('post'));
+    }
+
+
+
+    public function all_user_friend($id)
+    {
+
+
+        $data['title']=Settings::select('site_title')->first();
+
+        
+
+        $friend = DB::table('friends')
+                         ->leftJoin('users','users.id','friends.friend_id')
+                         ->select('friends.*','users.profile_image','users.full_name')
+                         ->where('user_request',$id)
+                         
+                         ->get();
+                         // dd($friend);
+        
+        return view('old_frontend.all_user_friend',$data,compact('friend'));
+    }
+
+
+    public function homePage()
+    {
+
+        return view('old_frontend.home-page');
     }
 
 

@@ -12,6 +12,14 @@
         <title>{!! $settings->site_title !!}</title>
          <link rel="shortcut icon" href="{!! asset($settings->favicon) !!}">
         <!-- Vendor styles -->
+        <!-- <script src="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap.min.css"></script>
+
+
+        <script src="https://cdn.datatables.net/fixedheader/3.2.4/css/fixedHeader.bootstrap.min.css"></script>
+        <script src="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap.min.css"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script> -->
+        
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
         <link rel="stylesheet" href="{{ url('public/vendor/fontawesome/css/font-awesome.css') }}">
         <link rel="stylesheet" href="{{ url('public/vendor/metisMenu/dist/metisMenu.css') }}">

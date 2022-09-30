@@ -37,11 +37,21 @@ $currentPath = Request::path();
             </div>
         </div>
 
+
+
         <ul class="list-group" id="side-menu">
             <li <?php $current = ($currentControllerName == 'dashboard') ? 'active' : ''; ?> class=" d-flex justify-content-between align-items-center pl-3 <?php echo $current; ?>" >
                 <a href="{!! URL::to('dashboard') !!}" class="text-decoration-none d-block">{{ __(session()->get('localeVal').'.DASHBOARD') }}</a>
+
                  <span ><i class="fas fa-tachometer-alt"></i></span>
             </li>
+
+            <li <?php $current = ($currentControllerName == 'dashboard') ? 'active' : ''; ?> class=" d-flex justify-content-between align-items-center pl-3 <?php echo $current; ?>" >
+                <a href="{!! URL::to('All-User') !!}" class="text-decoration-none d-block">{{ __(session()->get('localeVal').'.USER') }}</a>
+                
+                 <span ><i class="fas fa-tachometer-alt"></i></span>
+            </li>
+
 
             <?php if (!empty($aclList[1][1]) || !empty($aclList[2][1])  || !empty($aclList[6][1]) || !empty($aclList[3][1])) { ?>
             <li <?php $current = (request::is('role') == 'role' || $currentControllerName == 'users' || $currentControllerName == 'roleacl' || $currentControllerName == 'useracl' || $currentControllerName == 'modulelist' || $currentControllerName == 'activitylist') ? 'active' : ''; ?> class="<?php echo $current; ?> ">
@@ -116,5 +126,8 @@ $currentPath = Request::path();
 
 
         </ul>
+
+ 
     </div>
 </aside>
+    

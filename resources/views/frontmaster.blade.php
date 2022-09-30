@@ -51,6 +51,7 @@
 															</label>
 														</li>
 														<input type="hidden" name="username" id="" class="form-control" value="">
+														<input type="hidden" name="user_id" id="" class="form-control" value="">
 														<li>
 															<button type="submit">Post</button>
 														</li>
@@ -70,7 +71,7 @@
 											  @foreach($postview as $data1)
 											  
 											<figure>
-												<img src="{{asset('public/frontend/images/resources/friend-avatar10.jpg')}}" alt="">
+												<img src="{{asset('public/profile/profile_image/'.$data1->profile_image)}}" alt="">
 											</figure>
                                            
 

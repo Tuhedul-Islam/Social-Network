@@ -78,8 +78,9 @@
 										<div class="friend-info">
 											@foreach($timelineview as $data)
 											<figure>
-												<img src="{{asset('public/frontend/images/resources/friend-avatar10.jpg')}}" alt="">
+												<img src="{{asset('public/profile/profile_image/'.$data->profile_image)}}" alt="">
 											</figure>
+
 											<div class="friend-name">
 												<ins><a href="time-line.html" title="">{{$data->username}}</a></ins>
 												<span>published: {{$data->created_at}}</span>

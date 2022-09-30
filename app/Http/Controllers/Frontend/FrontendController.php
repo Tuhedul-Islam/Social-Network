@@ -27,7 +27,11 @@ class FrontendController extends Controller
     {
 
         $user = Auth::user();
-        $postview = post::all();
+        $postview = DB::table('posts')
+                         ->leftJoin('users','users.id','posts.user_id')
+                         ->select('posts.*','users.profile_image')
+                          
+                         ->get();
 
         $approvedFriend=Friend::select('friend_id')->where('status',1)->get()->toArray();
         $approvedFriend=Arr::flatten($approvedFriend);
@@ -63,8 +67,15 @@ class FrontendController extends Controller
                          ->count();
 
        
-        $timelineview = post::where('username', Auth::user()->username)->get();
-       
+        
+
+        $timelineview = DB::table('posts')
+                         ->leftJoin('users','users.id','posts.user_id')
+                         ->select('posts.*','users.profile_image')
+                            ->where('posts.user_id',Auth::user()->id)
+                         ->get();
+
+       // dd($timelineview);
 
         return view('frontend.page.timeline',compact('timelineview','myfriends','requestcount','image'));
     }
@@ -109,17 +120,20 @@ class FrontendController extends Controller
     public function friends_page()
      {
          $image = User::where('id',Auth::user()->id)->first();
-        $pendingFriend=Friend::select('friend_id')->where('request_sent',1)->get()->toArray();
+
+        $pendingFriend=Friend::select('user_request')->where('request_sent',1)->get()->toArray();
 
         $pendingFriend=Arr::flatten($pendingFriend);
         
-        $approvedFriend=Friend::select('friend_id')->where('status',1)->get()->toArray();
+        $approvedFriend=Friend::select('user_request ')->where('status',1)->get()->toArray();
         $approvedFriend=Arr::flatten($approvedFriend);
 
 
         $allfriends = user::whereNotIn('id',$pendingFriend)->whereNotIn('id',$approvedFriend)->get();
+         // dd($allfriends);
 
         $myfriends = user::whereIn('id',$approvedFriend)->get();
+        // dd($myfriends);
 
 
 

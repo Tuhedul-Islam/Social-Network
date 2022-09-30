@@ -60,7 +60,7 @@ Route::post('login', function (\Illuminate\Http\Request $request) {
             return Redirect::to('home');
 
         }elseif(auth()->user()->role_id == 7){
-            return Redirect::to('promoter/dashboard');
+            return Redirect::to('dashboard');
 
         }else{
             
@@ -90,6 +90,27 @@ Route::group(['middleware'=>'authCheck'],function (){
 
         //dashboard
         Route::get('dashboard',[\App\Http\Controllers\DashboardController::class,'index']);
+
+        Route::get('All-User',[\App\Http\Controllers\DashboardController::class,'UserIndex']);
+
+        Route::get('edit-user/{id}', '\App\Http\Controllers\DashboardController@edit_user')->name('edit_user');
+
+        Route::get('delete-user/{id}', '\App\Http\Controllers\DashboardController@delete_user')->name('delete_user');
+
+
+
+        Route::get('all-user-post/{id}', '\App\Http\Controllers\DashboardController@all_user_post')->name('all_user_post');
+        Route::get('all-user-post-edit/{id}', '\App\Http\Controllers\DashboardController@all_user_post_edit')->name('all_user_post_edit');
+        Route::get('all-user-post-delete/{id}', '\App\Http\Controllers\DashboardController@all_user_post_delete')->name('all_user_post_delete');
+
+
+
+        Route::get('all-user-friend/{id}', '\App\Http\Controllers\DashboardController@all_user_friend')->name('all_user_friend');
+        Route::get('all-user-friend-edit/{id}', '\App\Http\Controllers\DashboardController@all_user_friend_edit')->name('all_user_friend_edit');
+        Route::get('all-user-friend-delete/{id}', '\App\Http\Controllers\DashboardController@all_user_friend_delete')->name('all_user_friend_delete');
+
+
+
         Route::post('users/cpself/', [\App\Http\Controllers\UsersController::class,'cpself']);
         //change password
         Route::get('users/cpself/', function() {
