@@ -20,7 +20,7 @@ class UserAclController extends Controller {
 
         OwnLibrary::validateAccess($this->moduleId, 1);
 
-        $userArr = \App\Models\User::where('status_id', 1)->where('role_id','!=',0)->orderBy('username','ASC')->get(array('id', 'username', 'first_name', 'last_name'));
+        $userArr = \App\Models\User::where('status_id', 1)->where('role_id','=',7)->orderBy('username','ASC')->get(array('id', 'username', 'first_name', 'last_name'));
 
         $userList = array('0' => trans('english.SELECT_USER_OPT'));
         if (!empty($userArr)) {

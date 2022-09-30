@@ -6,7 +6,8 @@
         $settings=\App\Models\Settings::find(1);
         ?>
         <span>
-            <b class="mm-group"><a href="@if(auth()->user()->role_id == 6) {{URL::to('dashboard')}} @elseif(auth()->user()->role_id == 7) {{URL::to('promoter/dashboard')}} @else {{URL::to('dashboard')}} @endif"><img src="{!! asset($settings->logo) !!}" alt="" style="height:60px;width: 60px;"></a></b>
+            <b class="mm-group"><a href="@if(auth()->user()->role_id == 6) {{URL::to('dashboard')}} @elseif(auth()->user()->role_id == 7) {{URL::to('promoter/dashboard')}} @else 
+             @endif"><img src="{!! asset($settings->logo) !!}" alt="" style="height:60px;width: 60px;"></a></b>
         </span>
     </div>
     <nav role="navigation">

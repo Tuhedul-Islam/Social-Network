@@ -81,7 +81,7 @@
         $settings=\App\Models\Settings::find(1);
 
         ?>
-        <div class="splash"> <div class="color-line"></div><div class="splash-title"><img src="{!! asset($settings->logo) !!}" class="rotating123" width="64" height="64" /><h1 class="mm-group-text"><b>{!! $settings->site_title !!}</b></h1><p></p> </div> </div>
+        <!-- <div class="splash"> <div class="color-line"></div><div class="splash-title"><img src="{!! asset($settings->logo) !!}" class="rotating123" width="64" height="64" /><h1 class="mm-group-text"><b>{!! $settings->site_title !!}</b></h1><p></p> </div> </div> -->
 
         <!-- Header -->
         @include('includes.header')
@@ -92,10 +92,8 @@
             <!-- Container Call -------------------->
             @yield('content')
             <footer class="footer">
-                <span class="pull-right">
-                    Powered By <a href="http://www.issl.com.bd" target="_blank">Impel Service &amp; Solutions Limited</a>
-                </span>
-                Copyright &copy; <a href="http://www.issl.com.bd" target="_blank" class="text-danger">{!! $settings->copyRight !!} </a> All Rights Reserved
+                
+               
             </footer>
         </div>
 

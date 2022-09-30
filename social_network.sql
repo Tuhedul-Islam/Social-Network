@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2022 at 12:04 PM
+-- Generation Time: Sep 30, 2022 at 04:18 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -42,16 +42,13 @@ INSERT INTO `activity` (`id`, `name`, `description`) VALUES
 (2, 'Create', 'Create'),
 (3, 'Update', 'Update'),
 (4, 'Delete', 'Delete'),
-(5, 'Lock', 'Lock'),
 (6, 'Download', 'Download'),
 (7, 'Change password', 'Change password'),
 (8, 'Password reset', 'Password reset'),
 (9, 'Print', 'Print'),
-(10, 'Commit', 'Commit'),
 (11, 'Activate', 'Activate'),
 (12, 'Approve', 'Approve'),
 (13, 'Decline', 'Decline'),
-(14, 'Amend', 'Amend'),
 (15, 'Details', 'Details');
 
 -- --------------------------------------------------------
@@ -131,6 +128,30 @@ INSERT INTO `friends` (`id`, `user_request`, `friend_id`, `status`, `request_sen
 (19, 1, 810, 1, 1, 0, 0, '2022-09-28 04:36:07', '2022-09-27 22:35:45'),
 (20, 1, 812, 1, 1, 0, 0, '2022-09-28 04:36:01', '2022-09-27 22:35:53'),
 (21, 2, 1, 0, 1, 0, 0, '2022-09-28 02:48:56', '2022-09-28 02:48:56');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `language`
+--
+
+CREATE TABLE `language` (
+  `id` int(11) NOT NULL,
+  `language_name` varchar(150) DEFAULT NULL,
+  `status` int(2) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `language`
+--
+
+INSERT INTO `language` (`id`, `language_name`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(1, 'bn', 1, '2022-01-25 01:27:23', '2022-01-25 01:27:23', 1, 1),
+(2, 'en', 1, '2022-01-25 02:21:33', '2022-01-25 03:23:17', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -551,6 +572,7 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `posts` (
   `id` int(11) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
   `username` varchar(255) DEFAULT NULL,
   `post_content` longtext DEFAULT NULL,
   `audio` varchar(255) DEFAULT NULL,
@@ -565,12 +587,13 @@ CREATE TABLE `posts` (
 -- Dumping data for table `posts`
 --
 
-INSERT INTO `posts` (`id`, `username`, `post_content`, `audio`, `video`, `image`, `capture`, `created_at`, `updated_at`) VALUES
-(7, 'admin', 'fzdfzdfz', NULL, NULL, '15884.PNG', NULL, '2022-09-11 07:32:58', '2022-09-11 07:32:58'),
-(8, 'admin', 'Lonely Cat Enjoying in Summer Curabitur #mypage ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,', NULL, NULL, '42697.PNG', NULL, '2022-09-11 09:59:10', '2022-09-11 09:59:10'),
-(9, 'admin', 'Lonely Cat Enjoying in Summer Curabitur #mypage ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,', NULL, '50299.mp4', NULL, NULL, '2022-09-11 10:43:13', '2022-09-11 10:43:13'),
-(10, 'admin', 'Lonely Cat Enjoying in Summer Curabitur #mypage ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,', NULL, NULL, '54144.jpg', NULL, '2022-09-11 10:45:02', '2022-09-11 10:45:02'),
-(11, 'Meheraz1', 'Lonely Cat Enjoying in Summer Curabitur #mypage ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,', NULL, NULL, '52644.PNG', NULL, '2022-09-12 11:16:31', '2022-09-12 11:16:31');
+INSERT INTO `posts` (`id`, `user_id`, `username`, `post_content`, `audio`, `video`, `image`, `capture`, `created_at`, `updated_at`) VALUES
+(7, 1, 'admin', 'fzdfzdfz', NULL, NULL, '15884.PNG', NULL, '2022-09-28 11:22:43', '2022-09-11 07:32:58'),
+(8, 1, 'admin', 'Lonely Cat Enjoying in Summer Curabitur #mypage ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,', NULL, NULL, '42697.PNG', NULL, '2022-09-28 11:22:38', '2022-09-11 09:59:10'),
+(9, 1, 'admin', 'Lonely Cat Enjoying in Summer Curabitur #mypage ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,', NULL, '50299.mp4', NULL, NULL, '2022-09-28 11:22:32', '2022-09-11 10:43:13'),
+(10, 1, 'admin', 'Lonely Cat Enjoying in Summer Curabitur #mypage ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,', NULL, NULL, '54144.jpg', NULL, '2022-09-28 11:22:26', '2022-09-11 10:45:02'),
+(11, 2, 'Meheraz1', 'Lonely Cat Enjoying in Summer Curabitur #mypage ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,', NULL, NULL, '52644.PNG', NULL, '2022-09-28 11:22:19', '2022-09-12 11:16:31'),
+(12, 1, 'admin', 'Book a 30-min demo to see how other organisations are using TEX to develop their people and communities. We will walk you through how TEX could be effective for your organisation and cover a few of the common use cases in these 3 areas;', NULL, NULL, '115358.jpg', NULL, '2022-09-28 05:21:31', '2022-09-28 05:21:31');
 
 -- --------------------------------------------------------
 
@@ -594,10 +617,9 @@ CREATE TABLE `role` (
 --
 
 INSERT INTO `role` (`id`, `name`, `info`, `created_by`, `updated_by`, `created_at`, `updated_at`, `status_id`) VALUES
-(1, 'Super User', 'Super User of this application who can manage all kind of operation, Basically used for Developer', 55, 55, '2017-04-12 17:30:56', '2017-11-07 12:48:00', 1),
+(1, 'User', 'Super User of this application who can manage all kind of operation, Basically used for Developer', 55, 55, '2017-04-12 17:30:56', '2017-11-07 12:48:00', 1),
 (2, 'System Admin Manager', 'Limited access with almost all the features, Who have the super power in company', 55, 55, '2017-04-12 17:32:45', '2017-11-07 12:51:02', 1),
-(4, 'Chief Executive Officer', 'Chief Executive  Officer, No delete power', 55, 55, '2017-05-04 15:21:00', '2017-11-08 11:39:33', 1),
-(5, 'Chief Accountant Officer', 'Chief Accountant Officer', 55, 55, '2017-06-10 12:25:44', '2017-11-07 12:52:48', 1);
+(4, 'Chief Executive Officer', 'Chief Executive  Officer, No delete power', 55, 55, '2017-05-04 15:21:00', '2017-11-08 11:39:33', 1);
 
 -- --------------------------------------------------------
 
@@ -627,7 +649,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `site_title`, `tag_line`, `site_description`, `email`, `phone`, `location`, `logo`, `favicon`, `copyRight`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
-(1, 'Department of Narcotics Control', 'Department of Narcotics Control', 'Department of Narcotics Control', 'dg@dnc.gov.bd', '02-48322185', 'Department of Narcotics Control\r\n41, Segunbagicha\r\nDhaka, Bangladesh', 'public/upload/systemSettings/724526.png', 'public/upload/systemSettings/418362.png', 'DNC. All Rights Reserved', 55, 55, '2018-02-08 00:00:00', '2022-05-23 12:58:41');
+(1, 'Social Network', 'Social Network', 'Social Network', 'admin@admin.com', '013488547856', 'Social Network\r\nDhaka, Bangladesh', 'public/upload/systemSettings/526756.png', 'public/upload/systemSettings/715844.png', 'DNC. All Rights Reserved', 55, 55, '2018-02-08 00:00:00', '2022-09-30 13:48:16');
 
 -- --------------------------------------------------------
 
@@ -640,6 +662,8 @@ CREATE TABLE `users` (
   `role_id` varchar(200) DEFAULT NULL,
   `org_id` int(11) DEFAULT NULL,
   `full_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
   `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `gender` varchar(11) DEFAULT NULL,
   `contact_no` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -671,12 +695,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `role_id`, `org_id`, `full_name`, `email`, `gender`, `contact_no`, `username`, `password`, `designation`, `photo`, `status_id`, `friend_status`, `employee_status`, `employee_id`, `employee_designation`, `divisional_office`, `district_office`, `circle_office`, `phn_personal`, `email_personal`, `process_sms_alert`, `remember_token`, `created_by`, `updated_by`, `created_at`, `updated_at`, `profile_image`, `profile_banner`) VALUES
-(1, '1', NULL, 'System', NULL, NULL, NULL, 'admin', '$2y$10$DGXfPihHBrxoAzBVt/T8Ne9YZh8Aph/ey8I.DzOiE0QDahCit74si', NULL, '628b8528559d6620ba0faac32f3219840.png', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'NOPqL3H0XFg1fFHsrHJBI2IK4YBCjfp5edABo5jHjmq7dScd0pahs8dTg6Do', 44, 1, '2015-02-15 04:21:06', '2022-09-28 06:43:36', '72805.png', '72805.jpg'),
-(811, NULL, NULL, 'd', 'a@gmail.com', 'male', NULL, 'd', '$2y$10$vdMJj9plQE8S70UdQc5Gge1E9itvPo36ev2o3j9Lx2XSh59M2bs1i', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:22:46', '2022-09-12 17:22:46', NULL, NULL),
-(810, NULL, NULL, 'ridoy', 'admind@gmail.com', 'male', NULL, '1', '$2y$10$SPHzQTwTi8vCBCzFB6zU1OMvD.xTv8/N57wf24.kdKBu1dxF/9p1m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:20:16', '2022-09-12 17:20:16', NULL, NULL),
-(2, '1', NULL, 'Meheraz', 'admin@gmail.com', 'male', NULL, 'Meheraz1', '$2y$10$FpN46FmcvQjW5bFzXmRWeOd03QPbhO4F4cg1E2y5TPsX7dK7H.Z0u', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:08:54', '2022-09-12 17:08:54', NULL, NULL),
-(812, NULL, NULL, 'Meheraz istiak', 'f@gmail.com', 'male', NULL, 'meheraz', '$2y$10$pS485Qb3MpFSk9QrfO0wJ.EDYLLnW/TlkQERtVCA97RSRsXLyGPg6', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-16 17:04:50', '2022-09-16 17:04:50', NULL, NULL);
+INSERT INTO `users` (`id`, `role_id`, `org_id`, `full_name`, `first_name`, `last_name`, `email`, `gender`, `contact_no`, `username`, `password`, `designation`, `photo`, `status_id`, `friend_status`, `employee_status`, `employee_id`, `employee_designation`, `divisional_office`, `district_office`, `circle_office`, `phn_personal`, `email_personal`, `process_sms_alert`, `remember_token`, `created_by`, `updated_by`, `created_at`, `updated_at`, `profile_image`, `profile_banner`) VALUES
+(1, '7', NULL, 'System', 'System', 'administrator', 'admin@admin.com', NULL, NULL, 'admin', '$2y$10$DGXfPihHBrxoAzBVt/T8Ne9YZh8Aph/ey8I.DzOiE0QDahCit74si', NULL, '6336ef35057b8899048ab0cc455154006fdb9676964b3.jpg', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'km6FWLhD7oxC9lJk9EdUj51KtiMSxghzmlNYSLndT9ZhqLwbnJvDebBSzfwU', 44, 1, '2015-02-15 04:21:06', '2022-09-30 13:29:25', '72805.png', '72805.jpg'),
+(811, '1', NULL, 'rasel', '', '', 'a@gmail.com', 'male', NULL, 'rasel', '$2y$10$vdMJj9plQE8S70UdQc5Gge1E9itvPo36ev2o3j9Lx2XSh59M2bs1i', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:22:46', '2022-09-12 17:22:46', NULL, NULL),
+(810, '1', NULL, 'ridoy', '', '', 'admind@gmail.com', 'male', NULL, 'ridoy', '$2y$10$SPHzQTwTi8vCBCzFB6zU1OMvD.xTv8/N57wf24.kdKBu1dxF/9p1m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:20:16', '2022-09-12 17:20:16', NULL, NULL),
+(2, '1', NULL, 'Meheraz', '', '', 'admin@gmail.com', 'male', NULL, 'Meheraz1', '$2y$10$FpN46FmcvQjW5bFzXmRWeOd03QPbhO4F4cg1E2y5TPsX7dK7H.Z0u', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:08:54', '2022-09-28 11:33:11', '119767.jpg', '119767.jpg'),
+(812, '1', NULL, 'Meheraz istiak', '', '', 'f@gmail.com', 'male', NULL, 'meheraz', '$2y$10$pS485Qb3MpFSk9QrfO0wJ.EDYLLnW/TlkQERtVCA97RSRsXLyGPg6', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-16 17:04:50', '2022-09-16 17:04:50', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -705,6 +729,12 @@ ALTER TABLE `failed_jobs`
 -- Indexes for table `friends`
 --
 ALTER TABLE `friends`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `language`
+--
+ALTER TABLE `language`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -796,6 +826,12 @@ ALTER TABLE `friends`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
+-- AUTO_INCREMENT for table `language`
+--
+ALTER TABLE `language`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
@@ -829,7 +865,7 @@ ALTER TABLE `module_to_user`
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `role`
