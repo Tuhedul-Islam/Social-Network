@@ -110,6 +110,11 @@ Route::group(['middleware'=>'authCheck'],function (){
         Route::get('all-user-friend-delete/{id}', '\App\Http\Controllers\DashboardController@all_user_friend_delete')->name('all_user_friend_delete');
 
 
+        Route::get('all-user-page/{id}', '\App\Http\Controllers\DashboardController@all_user_page')->name('all_user_page');
+        Route::get('all-user-page-edit/{id}', '\App\Http\Controllers\DashboardController@all_user_page_edit')->name('all_user_page_edit');
+        Route::get('all-user-page-delete/{id}', '\App\Http\Controllers\DashboardController@all_user_page_delete')->name('all_user_page_delete');
+
+
 
         Route::post('users/cpself/', [\App\Http\Controllers\UsersController::class,'cpself']);
         //change password

@@ -1,8 +1,6 @@
 @extends('layouts.default')
 @section('content')
     <div class="content animate-panel">
-    	<div class="card">
-    		<h2>User Control</h2>
         <div class="row">
             <div class="col-lg-12 text-center">
               <!--   <h2>
@@ -13,38 +11,40 @@
         <thead>
             <tr>
             	<th>ID</th>
-                <th>User name</th>
+                <th>Page Name</th>
                 <th>Email</th>
                 <th>Image</th>
-                <th>Post</th>
-                <th>Page</th>
-                <th>Friend</th>
                 <th>Action</th>
 
             </tr>
         </thead>
         <tbody>
-            	@foreach($user as $data)
+            @if(count($page)>0)
+
+            	@foreach($page as $data)
 					<tr>
 						
 						<td>{{$loop->iteration}}</td>
-						<td>{{$data->full_name}}</td>
+						<td>{{$data->page_name}}</td>
 						<td>{{$data->email}}</td>
-						<td> <img height="50px" width="40px" src="{{asset('public/profile/profile_image/'.$data->profile_image)}}" alt="not found"></td>
-
-						<td><button class="btn btn-primary"><a href="{{route('all_user_post',$data->id)}}" style="color:white;">All Post</a></button></td>
-						<td><button class="btn btn-success" ><a href="{{route('all_user_page',$data->id)}}"style="color:white;">All Page</a></button></td>
-						<td><button class="btn btn-warning" ><a href="{{route('all_user_friend',$data->id)}}"style="color:white;">All Friend</a></button></td>
+						<td> <img height="50px" width="40px" src="{{asset('public/post/banner/'.$data->banner)}}" alt="not found"></td>
 						 	
 						<td>
-							<a href="{{route('edit_user',$data->id)}}" class="btn btn-info btn-xs" > <i class="fas fa-pencil-alt"></i></a>
-							<a href="{{route('delete_user',$data->id)}}" class="btn btn-danger btn-xs" > <i class="fas fa-trash-alt"></i></a>
+							<a href="{{route('all_user_page_edit',$data->id)}}" class="btn btn-info btn-xs" > <i class="fas fa-pencil-alt"></i></a>
+							<a href="{{route('all_user_page_delete',$data->id)}}" class="btn btn-danger btn-xs" > <i class="fas fa-trash-alt"></i></a>
 							
 
 						</td>
 	
 					</tr>
 					@endforeach
+                    @else
+                    <tr>
+                        <td colspan="5">
+                            No page Yet
+                        </td>
+                    </tr>
+                    @endif
           
         </tbody>
     </table>
@@ -53,7 +53,6 @@
                     <!--Better Customer Experience-->
                 </p>
             </div>
-        </div>
         </div>
     </div>
 

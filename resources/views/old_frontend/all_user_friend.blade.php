@@ -12,19 +12,21 @@
             <tr>
             	<th>ID</th>
                 <th>Friend Name </th>
-                 <th>Panding Friend</th>
-                 <th>Request Friend</th>
+                 <th>Email</th>
                  <th>Image</th>
                 <th>Action</th>
 
             </tr>
         </thead>
         <tbody>
+              @if(count($friend)>0)
+
             	@foreach($friend as $data)
 					<tr>
 						
 						<td>{{$loop->iteration}}</td>
 						<td>{{$data->full_name}}</td>
+                        <td>{{$data->email}}</td>
 						<td> <img height="50px" width="40px" src="{{asset('public/profile/profile_image/'.$data->profile_image)}}" alt="not found"></td>
 						 	
 						<td>
@@ -36,6 +38,13 @@
 	
 					</tr>
 					@endforeach
+                    @else
+                    <tr>
+                        <td colspan="5">
+                            No Friend Yet
+                        </td>
+                    </tr>
+                    @endif
           
         </tbody>
     </table>

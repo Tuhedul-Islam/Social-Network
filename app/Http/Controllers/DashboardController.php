@@ -65,6 +65,31 @@ class DashboardController extends Controller
         return view('old_frontend.all_user_post',$data,compact('post'));
     }
 
+    public function all_user_post_delete($id)
+    {
+
+      
+
+           $post= Post::findOrFail($id);
+
+            
+        
+        if($post){
+            if( file_exists('public/post/image/'.$post->image) AND !empty($post->image))
+            {
+                unlink('public/post/image/'.$post->image);
+            }
+            $post->delete();
+            return redirect()->back()->with('success','post information successfully deleted.');
+        }
+        
+             else
+            {
+                return redirect()->back()->with('error','Something Error Found !, Please try again.');
+            }
+           
+     }
+
 
 
     public function all_user_friend($id)
@@ -77,7 +102,7 @@ class DashboardController extends Controller
 
         $friend = DB::table('friends')
                          ->leftJoin('users','users.id','friends.friend_id')
-                         ->select('friends.*','users.profile_image','users.full_name')
+                         ->select('friends.*','users.profile_image','users.full_name','users.email')
                          ->where('user_request',$id)
                          
                          ->get();
@@ -85,6 +110,78 @@ class DashboardController extends Controller
         
         return view('old_frontend.all_user_friend',$data,compact('friend'));
     }
+
+    public function all_user_friend_delete($id)
+    {
+
+      
+
+           $friend = Friend::findOrFail($id);
+
+            
+        
+        if($friend){
+            if( file_exists('public/profile/profile_image/'.$friend->profile_image) AND !empty($friend->profile_image))
+            {
+                unlink('public/profile/profile_image/'.$friend->profile_image);
+            }
+            $friend->delete();
+            return redirect()->back()->with('success','friend information successfully deleted.');
+        }
+        
+             else
+            {
+                return redirect()->back()->with('error','Something Error Found !, Please try again.');
+            }
+           
+     }
+
+
+    public function all_user_page($id)
+    {
+
+
+        $data['title']=Settings::select('site_title')->first();
+
+        
+
+        $page = DB::table('create_pages')
+                         ->leftJoin('users','users.id','create_pages.user_id')
+                         ->select('create_pages.*','users.full_name')
+                         ->where('user_id',$id)
+                         
+                         ->get();
+                         // dd($friend);
+        
+        return view('old_frontend.all_user_page',$data,compact('page'));
+    }
+
+    
+
+    public function all_user_page_delete($id)
+    {
+
+      
+
+           $page = create_page::findOrFail($id);
+
+            
+        
+        if($page){
+            if( file_exists('public/post/banner/'.$page->banner) AND !empty($page->banner))
+            {
+                unlink('public/post/banner/'.$page->banner);
+            }
+            $page->delete();
+            return redirect()->back()->with('success','page information successfully deleted.');
+        }
+        
+             else
+            {
+                return redirect()->back()->with('error','Something Error Found !, Please try again.');
+            }
+           
+     }
 
 
     public function homePage()

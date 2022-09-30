@@ -18,6 +18,8 @@
             </tr>
         </thead>
         <tbody>
+            @if(count($post)>0)
+
             	@foreach($post as $data)
 					<tr>
 						
@@ -34,6 +36,13 @@
 	
 					</tr>
 					@endforeach
+                    @else
+                    <tr>
+                        <td colspan="4">
+                            No Post Yet
+                        </td>
+                    </tr>
+                    @endif
           
         </tbody>
     </table>
