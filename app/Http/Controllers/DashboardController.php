@@ -28,6 +28,9 @@ class DashboardController extends Controller
 
         $data['title']=Settings::select('site_title')->first();
 
+        $data['user']=User::where('role_id',1)->count();
+
+
         return view('dashboard.index', $data);
     }
 

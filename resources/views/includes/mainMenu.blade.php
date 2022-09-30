@@ -46,10 +46,10 @@ $currentPath = Request::path();
                  <span ><i class="fas fa-tachometer-alt"></i></span>
             </li>
 
-            <li <?php $current = ($currentControllerName == 'dashboard') ? 'active' : ''; ?> class=" d-flex justify-content-between align-items-center pl-3 <?php echo $current; ?>" >
-                <a href="{!! URL::to('All-User') !!}" class="text-decoration-none d-block">{{ __(session()->get('localeVal').'.USER') }}</a>
+            <li <?php $current = ($currentControllerName == 'all-user') ? 'active' : ''; ?> class=" d-flex justify-content-between align-items-center pl-3 <?php echo $current; ?>" >
+                <a href="{!! URL::to('all-user') !!}" class="text-decoration-none d-block">{{ __(session()->get('localeVal').'.USER') }}</a>
                 
-                 <span ><i class="fas fa-tachometer-alt"></i></span>
+                 <span ><i class="fa fa-user"></i></span>
             </li>
 
 

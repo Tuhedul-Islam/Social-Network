@@ -91,7 +91,7 @@ Route::group(['middleware'=>'authCheck'],function (){
         //dashboard
         Route::get('dashboard',[\App\Http\Controllers\DashboardController::class,'index']);
 
-        Route::get('All-User',[\App\Http\Controllers\DashboardController::class,'UserIndex']);
+        Route::get('all-user',[\App\Http\Controllers\DashboardController::class,'UserIndex']);
 
         Route::get('edit-user/{id}', '\App\Http\Controllers\DashboardController@edit_user')->name('edit_user');
 
