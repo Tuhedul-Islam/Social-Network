@@ -104,11 +104,59 @@ class DashboardController extends Controller
                          ->leftJoin('users','users.id','friends.friend_id')
                          ->select('friends.*','users.profile_image','users.full_name','users.email')
                          ->where('user_request',$id)
+                         ->where('status',1)
+                         ->where('cancel_request',0)
+                          ->where('delete_friend',0)
+                         ->where('request_sent',1)
                          
                          ->get();
                          // dd($friend);
         
         return view('old_frontend.all_user_friend',$data,compact('friend'));
+    }
+
+    public function all_user_pandingfriend($id)
+    {
+
+
+        $data['title']=Settings::select('site_title')->first();
+
+        
+
+        $friendRequest = DB::table('friends')
+                         ->leftJoin('users','users.id','friends.user_request')
+                         ->select('friends.*','users.full_name','users.email','users.profile_image')
+                         ->where('friends.user_request',Auth::user()->id)
+                         ->where('status',0)
+                         ->where('cancel_request',0)
+                          ->where('delete_friend',0)
+                         ->where('request_sent',1)
+                         ->get();
+                         // dd($friendRequest);
+        
+        return view('old_frontend.all_user_pandingfriend',$data,compact('friendRequest'));
+    }
+
+    public function approvefriend($id)
+    {
+
+
+        $data['title']=Settings::select('site_title')->first();
+
+        
+
+        $myfriends = DB::table('friends')
+                         ->leftJoin('users','users.id','friends.user_request')
+                         ->select('friends.*','users.full_name','users.email','users.profile_image')
+                         ->where('friends.user_request',Auth::user()->id)
+                         ->where('status',1)
+                         ->where('cancel_request',0)
+                          ->where('delete_friend',0)
+                         ->where('request_sent',1)
+                         ->get();
+                         // dd($myfriends);
+        
+        return view('old_frontend.all_user_approvefriend',$data,compact('myfriends'));
     }
 
     public function all_user_friend_delete($id)

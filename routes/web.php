@@ -106,6 +106,8 @@ Route::group(['middleware'=>'authCheck'],function (){
 
 
         Route::get('all-user-friend/{id}', '\App\Http\Controllers\DashboardController@all_user_friend')->name('all_user_friend');
+         Route::get('all-user-pandingfriend/{id}', '\App\Http\Controllers\DashboardController@all_user_pandingfriend')->name('all_user_pandingfriend');
+         Route::get('all-user-approvefriend/{id}', '\App\Http\Controllers\DashboardController@approvefriend')->name('approvefriend');
         Route::get('all-user-friend-edit/{id}', '\App\Http\Controllers\DashboardController@all_user_friend_edit')->name('all_user_friend_edit');
         Route::get('all-user-friend-delete/{id}', '\App\Http\Controllers\DashboardController@all_user_friend_delete')->name('all_user_friend_delete');
 
@@ -220,7 +222,7 @@ Route::group(['middleware'=>'authCheck'],function (){
         Route::get('timeline-notification_page', [FrontendController::class, 'notification_page'])->name('notification_page');
 
 
-        Route::get('My_page', [FrontendController::class, 'my_page'])->name('my_page');
+        Route::get('my_page', [FrontendController::class, 'my_page'])->name('my_page');
    
 
 
@@ -267,6 +269,7 @@ Route::group(['middleware'=>'authCheck'],function (){
 
      Route::group(['name' => 'my_page', 'as' => 'my_page.'], function () 
     {
+      Route::post('page-post', '\App\Http\Controllers\my_pageController@store')->name('store'); 
 
       Route::get('view-my-page/{id}', '\App\Http\Controllers\my_pageController@view_page')->name('view_page'); 
     });

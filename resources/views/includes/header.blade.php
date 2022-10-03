@@ -31,7 +31,7 @@
                     @if(session()->get('localeVal')=='bn')
                         <a href="{{ url('make-the-website-multi-lang/en') }}" class="btn btn-primary border_radius btn-padding fw-bold color-yellow font-size-18"> English </a>
                     @else
-                        <a href="{{ url('/make-the-website-multi-lang/bn') }}" class="btn btn-primary border_radius btn-padding fw-bold color-yellow font-size-18"> বাংলা </a>
+                        <!-- <a href="{{ url('/make-the-website-multi-lang/bn') }}" class="btn btn-primary border_radius btn-padding fw-bold color-yellow font-size-18"> বাংলা </a> -->
                     @endif
                 </div>
             </div>

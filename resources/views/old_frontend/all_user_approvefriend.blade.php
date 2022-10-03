@@ -14,41 +14,34 @@
                 <th>Friend Name </th>
                  <th>Email</th>
                  <th>Image</th>
-                 <th>Panding Friend</th>
-                 <th>Approve Friend</th>
-                <th>Action</th>
+                 
 
             </tr>
         </thead>
         <tbody>
-              @if(count($friend)>0)
+        	@dd($myfriends)
+              @if(count($myfriends)>0)
 
-            	@foreach($friend as $data)
+            	@foreach($myfriends as $data)
 					<tr>
 						
 						<td>{{$loop->iteration}}</td>
 						<td>{{$data->full_name}}</td>
                         <td>{{$data->email}}</td>
 						<td> <img height="50px" width="40px" src="{{asset('public/profile/profile_image/'.$data->profile_image)}}" alt="not found"></td>
-                        <td><button class="btn btn-primary"><a href="{{route('all_user_pandingfriend',$data->id)}}" style="color:white;">Panding friend</a></button></td>
-                        <td><button class="btn btn-primary"><a href="{{route('approvefriend',$data->id)}}" style="color:white;">Approve friend</a></button></td>
-						 	
-						<td>
-							<a href="{{route('all_user_friend_edit',$data->id)}}" class="btn btn-info btn-xs" > <i class="fas fa-pencil-alt"></i></a>
-							<a href="{{route('all_user_friend_delete',$data->id)}}" class="btn btn-danger btn-xs" > <i class="fas fa-trash-alt"></i></a>
-							
 
-						</td>
+						
 	
 					</tr>
 					@endforeach
-                    @else
+					@else
                     <tr>
                         <td colspan="5">
                             No Friend Yet
                         </td>
                     </tr>
                     @endif
+                    
           
         </tbody>
     </table>

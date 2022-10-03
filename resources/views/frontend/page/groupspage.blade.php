@@ -1,4 +1,4 @@
-@extends('frontend.index')
+<!-- @extends('frontend.index')
 
 @section('header')
 <section>
@@ -173,4 +173,4 @@
 									<div class="lodmore"><button class="btn-view btn-load-more"></button></div>
 								</div><!-- photos -->
 							</div><!-- centerl meta -->
-@endsection
+@endsection -->

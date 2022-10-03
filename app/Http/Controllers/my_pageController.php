@@ -9,12 +9,52 @@ use App\Models\Post;
 use App\Models\Friend;
 use Illuminate\Support\Arr;
 use App\Models\User;
+use App\Models\Page_post;
+use carbon\carbon;
 use Illuminate\Support\Facades\Auth;
 
 
 
 class my_pageController extends Controller
 {
+
+
+    public function store(Request $request)
+
+    { 
+        
+
+        $user = Auth::user();
+
+        
+        $input = new Page_post();
+
+        $input->page_post_content = $request->input('page_post_content');
+
+     
+        $date = Carbon::now()->format('his')+rand(1000,9999);
+       
+        if($images = $request->file('image')){
+            $extention = $request->file('image')->getClientOriginalExtension();
+            $imageName = $date.'.'.$extention;
+            $path = public_path('post/image');
+            $images->move($path,$imageName);
+
+
+           
+            $input->image = $imageName;
+         }
+
+        $input->user_name =$user->username;
+        $input->user_id =$user->id;
+        
+
+        
+
+        $input->save();
+        return redirect()->back(); 
+        
+    }
     public function view_page($id)
     { 
         $approvedFriend=Friend::select('friend_id')->where('status',1)->get()->toArray();

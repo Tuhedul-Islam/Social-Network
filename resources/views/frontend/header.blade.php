@@ -26,6 +26,11 @@
 						<li><a href="{{route('frontend.notification_page')}}" title="">notifications page</a></li>
 					</ul>
 				</li>
+
+				<li>
+					<a href="#" title="">E-library</a>
+					
+				</li>
 				
 			</ul>
 			<ul class="setting-area">
@@ -181,7 +186,7 @@
 			<div class="user-img">
 				<img src="{{asset('public/frontend/images/resources/admin.jpg')}}" alt="">
 				<span class="status f-online"></span>
-				<div class="user-setting">
+				<!-- <div class="user-setting">
 					<a href="#" title=""><span class="status f-online"></span>online</a>
 					<a href="#" title=""><span class="status f-away"></span>away</a>
 					<a href="#" title=""><span class="status f-off"></span>offline</a>
@@ -189,12 +194,12 @@
 					<a href="" title=""><i class="ti-pencil-alt"></i>edit profile</a>
 					<a href="#" title=""><i class="ti-target"></i>activity log</a>
 					<a href="#" title=""><i class="ti-settings"></i>account setting</a>
-					<!-- <a href="{{ URL::to('logout') }}" title=""><i class="ti-power-off"></i>log out</a>
+					<a href="{{ URL::to('logout') }}" title=""><i class="ti-power-off"></i>log out</a>
 					<i class="ti-power-off"></i>
-												<a href="{{ URL::to('logout') }}" title="">Logout</a> -->
-				</div>
+												<a href="{{ URL::to('logout') }}" title="">Logout</a>
+				</div> -->
 			</div>
-			<span class="ti-menu main-menu" data-ripple=""></span>
+			<!-- <span class="ti-menu main-menu" data-ripple=""></span> -->
 		</div>
 	</div><!-- topbar -->
 	
