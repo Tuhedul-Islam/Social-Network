@@ -34,11 +34,15 @@
                     <tr>
                         
                         <td><?php echo e($loop->iteration); ?></td>
+
                         <td><?php echo e($data->title); ?></td>
-                        <td><a href="<?php echo e(asset('public/post/document/'.$data->document)); ?>" download><i class="fa fa-download" aria-hidden="true"></i></a></td>
+
+                        <td><a href="<?php echo e(asset('public/post/document/'.$data->document)); ?>" download><i class="fa fa-download" aria-hidden="true"></i></a>
+                        </td>
                             
                         <td>
                         	<?php if(Auth::user()->id == $data->created_by): ?>
+
                             <a href="<?php echo e(route('elibrary.edit',$data->id)); ?>" class="btn btn-info btn-xs" > <i class="fa fa-edit"></i></a>
                             <a href="<?php echo e(route('elibrary.delete',$data->id)); ?>" class="btn btn-danger btn-xs" > <i class="fa fa-trash"></i></a>
                             <?php endif; ?>

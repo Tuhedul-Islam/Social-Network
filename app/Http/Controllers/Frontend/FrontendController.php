@@ -20,6 +20,8 @@ use App\Models\Friend;
 
 use Illuminate\Support\Facades\DB;
 
+use Illuminate\Support\Facades\Hash;
+
 
 class FrontendController extends Controller
 {
@@ -94,8 +96,10 @@ class FrontendController extends Controller
                           ->where('delete_friend',0)
                          ->where('request_sent',1)
                          ->count();
+       $postimage = Post::where('user_id', Auth::user()->id)->get();    
+       // dd($postimage);             
 
-        return view('frontend.page.photospage',compact('myfriends','requestcount','image'));
+        return view('frontend.page.photospage',compact('myfriends','requestcount','image','postimage'));
     }
 
     public function videos_page()
@@ -117,60 +121,6 @@ class FrontendController extends Controller
     }
 
 
-    // public function friends_page()
-    //  {
-    //      // $image = User::where('id',Auth::user()->id)->first();
-
-    //     $pendingFriend=Friend::select('user_request')->where('request_sent',1)->get()->toArray();
-
-    //     $pendingFriend=Arr::flatten($pendingFriend);
-        
-    //     $approvedFriend=Friend::select('user_request ')->where('status',1)->get()->toArray();
-    //     $approvedFriend=Arr::flatten($approvedFriend);
-
-
-    //     $allfriends = user::whereNotIn('id',$pendingFriend)->whereNotIn('id',$approvedFriend)->get();
-    //      dd($allfriends);
-
-    //     $myfriends = user::whereIn('id',$approvedFriend)->get();
-    //     dd($myfriends);
-
-
-
-
-
-    //     $count = DB::table('users')->count();
-
-    //     $requestcount = Friend::where('user_request', Auth::user()->id)
-    //                      ->where('status',0)
-    //                      ->where('cancel_request',0)
-    //                       ->where('delete_friend',0)
-    //                      ->where('request_sent',1)
-    //                      ->count();
-
-    //     $myfriendcount = Friend::where('user_request', Auth::user()->id)
-    //                      ->where('status',1)
-    //                      ->where('cancel_request',0)
-    //                       ->where('delete_friend',0)
-    //                      ->where('request_sent',1)
-    //                      ->count();
-    //     dd($requestcount);
-
-    //      $friendRequest = DB::table('friends')
-    //                      ->leftJoin('users','users.id','friends.user_request')
-    //                      ->select('friends.*','users.full_name')
-    //                      ->where('friends.friend_id',Auth::user()->id)
-    //                      ->where('status',0)
-    //                      ->where('cancel_request',0)
-    //                       ->where('delete_friend',0)
-    //                      ->where('request_sent',1)
-    //                      ->get();
-    //                       dd($friendRequest);
-
-       
-    //     return view('frontend.page.friendspage',
-    //         compact('allfriends','count','friendRequest','requestcount','myfriends','myfriendcount','image'));
-    //  }
 
 
     public function friends_page()
@@ -354,5 +304,38 @@ class FrontendController extends Controller
         return view('frontend.page.my_page',compact('my_page','myfriends','requestcount','image'));
     }
 
+
+    public function update_password(Request $request)
+    {
+        
+         $this->validate($request,[
+           'current_password' => 'required',
+
+            'password' => 'required',
+
+            'confirm_password' => 'required|same:password',
+        
+        ]);
+
+         
+
+        $hashedpassword = Auth::user()->password;
+
+        if(Hash::check($request->current_password,$hashedpassword))
+        {
+
+            $user = User::find(Auth::id());
+
+            $user->password = Hash::make($request->password);
+          
+            $user->save();
+            return redirect()->back();
+        }else
+        {
+            return redirect()->back()->with('error','The current password not match '); 
+        }
+
+         
+        }
 
 }

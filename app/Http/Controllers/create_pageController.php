@@ -3,11 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use App\Models\create_page;
+
 use carbon\carbon;
 
+use Illuminate\Support\Arr;
+
+use App\Http\Controllers\Controller;
+
 use Illuminate\Support\Facades\Auth;
+
+use App\Models\Post;
+
+use App\Models\create_page;
+
+use App\Models\User;
+
+use App\Models\Friend;
+
+use Illuminate\Support\Facades\DB;
 
 class create_pageController extends Controller
 {
@@ -20,7 +33,7 @@ class create_pageController extends Controller
 
         $input = new create_page();
         $input->page_name = $request->input('page_name');
-        $input->sub_title = $request->input('sub_title');
+       
         
         $input->email = $request->input('email');
         $input->phone = $request->input('phone');
@@ -59,10 +72,23 @@ class create_pageController extends Controller
    public function edit_page($id)
     {
 
+        $image = User::where('id',Auth::user()->id)->first();
+        $approvedFriend=Friend::select('friend_id')->where('status',1)->get()->toArray();
+        $approvedFriend=Arr::flatten($approvedFriend);
+
+        $myfriends = user::whereIn('id',$approvedFriend)->get();
+
+        $requestcount = Friend::where('user_request', Auth::user()->id)
+                         ->where('status',0)
+                         ->where('cancel_request',0)
+                          ->where('delete_friend',0)
+                         ->where('request_sent',1)
+                         ->count();
+
 
           $create_page = create_page::findOrFail($id);
 
-         return view('frontend.page.my_pages.edit_page',compact('create_page'));
+         return view('frontend.page.my_pages.edit_page',compact('create_page','myfriends','requestcount','image'));
     }
 
     public function update_page(Request $request, $id)
@@ -74,7 +100,7 @@ class create_pageController extends Controller
 
        
         $input->page_name = $request->input('page_name');
-        $input->sub_title = $request->input('sub_title');
+        
         
         $input->email = $request->input('email');
         $input->phone = $request->input('phone');

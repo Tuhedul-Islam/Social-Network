@@ -32,6 +32,8 @@ class profileController extends Controller
         $date = Carbon::now()->format('his')+rand(1000,9999);
         // $update = DB::table('users')->where('id',$id)->first();
         $update = User::find($id);
+        
+           $update->full_name = $request->input('full_name');
 
             if($images = $request->file('profile_image')){
             $extention = $request->file('profile_image')->getClientOriginalExtension();

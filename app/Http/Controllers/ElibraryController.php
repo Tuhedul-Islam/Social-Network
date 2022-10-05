@@ -91,6 +91,8 @@ class ElibraryController extends Controller
 
         
         $input->user_id =$user->id;
+        $input->created_by=Auth::user()->id;
+        $input->updated_by =Auth::user()->id;
 
 
          

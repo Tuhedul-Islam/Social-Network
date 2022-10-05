@@ -46,7 +46,10 @@ class my_pageController extends Controller
          }
 
         $input->user_name =$user->username;
+        $input->created_by=Auth::user()->id;
+        $input->updated_by =Auth::user()->id;
         $input->user_id =$user->id;
+        $input->page_id =$request->input('page_id');
         
 
         
@@ -72,9 +75,13 @@ class my_pageController extends Controller
         $my_page = DB::select("SELECT h.* from create_pages h
                         left join users i on i.id = h.user_id
                          where h.id = '$id'");
+
+        $view_page_post =Page_post::where('user_id', Auth::user()->id)->where('page_id',$id)->get();
                 
-        return View('frontend.page.my_pages.my_pages',compact('my_page','myfriends','requestcount'));
+        return View('frontend.page.my_pages.my_pages',compact('my_page','myfriends','requestcount','view_page_post'));
     }
+
+
 
     
 }

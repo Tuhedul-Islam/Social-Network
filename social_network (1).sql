@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 30, 2022 at 04:18 PM
+-- Generation Time: Oct 05, 2022 at 05:41 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -61,7 +61,6 @@ CREATE TABLE `create_pages` (
   `id` int(11) UNSIGNED NOT NULL,
   `user_id` int(10) DEFAULT NULL,
   `page_name` varchar(255) DEFAULT NULL,
-  `sub_title` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `phone` int(11) DEFAULT NULL,
   `banner` varchar(255) NOT NULL,
@@ -71,19 +70,47 @@ CREATE TABLE `create_pages` (
   `additional_info` varchar(255) DEFAULT NULL,
   `facebook_link` varchar(255) DEFAULT NULL,
   `twitter` varchar(255) DEFAULT NULL,
-  `instagram` varchar(255) NOT NULL,
+  `instagram` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `create_pages`
 --
 
-INSERT INTO `create_pages` (`id`, `user_id`, `page_name`, `sub_title`, `email`, `phone`, `banner`, `domain`, `states`, `city`, `additional_info`, `facebook_link`, `twitter`, `instagram`, `created_at`, `updated_at`) VALUES
-(2, 2, 'all In one', 'one', 'adm54in@gmail.com', 325455852, '58097.PNG', 'www.f.com', 'ALB', 'dhaka', 'dhaka mirpur', 'sfasaffs', NULL, 'sdfds', '2022-09-17 13:21:58', '2022-09-16 11:18:08'),
-(3, 811, 'sd', 'sds', 'admin@gmail.com', 32545, '56552.PNG', 'sds', 'ALB', 'sdsd', 'sdds', 'ds', NULL, 'sd', '2022-09-17 13:18:07', '2022-09-16 11:22:13'),
-(812, 1, 'one page', 'All in one page', 'meheraz@gmail.com', 254836942, '68794.jpg', 'www.h.com', 'BGD', 'dhaka', 'mirpur 111', 'www.com', NULL, 'www.com', '2022-09-20 00:12:30', '2022-09-20 00:12:30');
+INSERT INTO `create_pages` (`id`, `user_id`, `page_name`, `email`, `phone`, `banner`, `domain`, `states`, `city`, `additional_info`, `facebook_link`, `twitter`, `instagram`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(812, 1, 'one page', 'meheraz@gmail.com', 254836942, '68794.jpg', 'www.h.com', 'BGD', 'dhaka', 'mirpur 111', 'www.com', NULL, 'www.com', '2022-10-05 13:28:31', '2022-09-20 00:12:30', 812, 812),
+(813, 811, 'E-Book', 'ebook@gmail.com', 152648365, '71996.jfif', 'www.ebook.com', 'BGD', 'dhaka', 'yout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages', 'facekbook.com', NULL, 'instagrm.com', '2022-10-05 13:28:41', '2022-10-03 00:38:17', 813, 813),
+(814, 811, 'Friends and Family', 'frd@gmail.com', 1245896752, '19223.jpg', NULL, 'country', NULL, NULL, NULL, NULL, NULL, '2022-10-05 07:57:00', '2022-10-05 07:57:00', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `elibrarys`
+--
+
+CREATE TABLE `elibrarys` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `document` varchar(255) NOT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `elibrarys`
+--
+
+INSERT INTO `elibrarys` (`id`, `user_id`, `title`, `document`, `created_by`, `updated_by`, `created_at`, `updated_at`) VALUES
+(1, 811, 'sdsdf', '86928.png', 811, 811, '2022-10-05 11:15:37', '2022-10-05 02:26:10'),
+(2, 819, 'dust', '107617.docx', 819, 819, '2022-10-05 11:15:01', '2022-10-05 04:54:16'),
+(3, 819, 'form', '110868.docx', 819, 819, '2022-10-05 11:15:06', '2022-10-05 04:57:02');
 
 -- --------------------------------------------------------
 
@@ -124,10 +151,9 @@ CREATE TABLE `friends` (
 --
 
 INSERT INTO `friends` (`id`, `user_request`, `friend_id`, `status`, `request_sent`, `cancel_request`, `delete_friend`, `created_at`, `updated_at`) VALUES
-(18, 1, 2, 0, 1, 0, 0, '2022-09-27 22:33:05', '2022-09-27 22:33:05'),
-(19, 1, 810, 1, 1, 0, 0, '2022-09-28 04:36:07', '2022-09-27 22:35:45'),
-(20, 1, 812, 1, 1, 0, 0, '2022-09-28 04:36:01', '2022-09-27 22:35:53'),
-(21, 2, 1, 0, 1, 0, 0, '2022-09-28 02:48:56', '2022-09-28 02:48:56');
+(22, 811, 812, 1, 1, 0, 0, '2022-10-05 12:55:53', '2022-10-03 00:25:41'),
+(23, 811, 810, 0, 1, 0, 0, '2022-10-05 06:55:41', '2022-10-05 06:55:41'),
+(24, 811, 810, 0, 1, 0, 0, '2022-10-05 07:41:37', '2022-10-05 07:41:37');
 
 -- --------------------------------------------------------
 
@@ -555,6 +581,32 @@ INSERT INTO `module_to_user` (`id`, `module_id`, `user_id`, `activity_id`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `page_posts`
+--
+
+CREATE TABLE `page_posts` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `page_id` int(11) DEFAULT NULL,
+  `user_name` varchar(255) DEFAULT NULL,
+  `page_post_content` varchar(255) DEFAULT NULL,
+  `image` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `page_posts`
+--
+
+INSERT INTO `page_posts` (`id`, `user_id`, `page_id`, `user_name`, `page_post_content`, `image`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(1, 811, 814, 'rasel', 'fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Conten', '22592.jfif', '2022-10-05 08:13:25', '2022-10-05 08:13:25', 811, 811);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `password_resets`
 --
 
@@ -588,12 +640,11 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `username`, `post_content`, `audio`, `video`, `image`, `capture`, `created_at`, `updated_at`) VALUES
-(7, 1, 'admin', 'fzdfzdfz', NULL, NULL, '15884.PNG', NULL, '2022-09-28 11:22:43', '2022-09-11 07:32:58'),
-(8, 1, 'admin', 'Lonely Cat Enjoying in Summer Curabitur #mypage ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,', NULL, NULL, '42697.PNG', NULL, '2022-09-28 11:22:38', '2022-09-11 09:59:10'),
-(9, 1, 'admin', 'Lonely Cat Enjoying in Summer Curabitur #mypage ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,', NULL, '50299.mp4', NULL, NULL, '2022-09-28 11:22:32', '2022-09-11 10:43:13'),
-(10, 1, 'admin', 'Lonely Cat Enjoying in Summer Curabitur #mypage ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,', NULL, NULL, '54144.jpg', NULL, '2022-09-28 11:22:26', '2022-09-11 10:45:02'),
-(11, 2, 'Meheraz1', 'Lonely Cat Enjoying in Summer Curabitur #mypage ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,', NULL, NULL, '52644.PNG', NULL, '2022-09-28 11:22:19', '2022-09-12 11:16:31'),
-(12, 1, 'admin', 'Book a 30-min demo to see how other organisations are using TEX to develop their people and communities. We will walk you through how TEX could be effective for your organisation and cover a few of the common use cases in these 3 areas;', NULL, NULL, '115358.jpg', NULL, '2022-09-28 05:21:31', '2022-09-28 05:21:31');
+(13, 811, 'rasel', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. \r\n#tiger', NULL, NULL, '63462.jfif', NULL, '2022-10-02 23:52:48', '2022-10-02 23:52:48'),
+(14, 811, 'rasel', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.', NULL, NULL, '57614.jfif', NULL, '2022-10-02 23:53:28', '2022-10-02 23:53:28'),
+(15, 2, 'Md opu', 'he point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem', NULL, NULL, '65266.jfif', NULL, '2022-10-03 00:11:10', '2022-10-03 00:11:10'),
+(16, 812, 'meheraz', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour,', NULL, NULL, '64402.jfif', NULL, '2022-10-03 00:14:33', '2022-10-03 00:14:33'),
+(17, 811, 'rasel', 'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites', NULL, NULL, '17818.jpg', NULL, '2022-10-03 07:08:14', '2022-10-03 07:08:14');
 
 -- --------------------------------------------------------
 
@@ -619,7 +670,9 @@ CREATE TABLE `role` (
 INSERT INTO `role` (`id`, `name`, `info`, `created_by`, `updated_by`, `created_at`, `updated_at`, `status_id`) VALUES
 (1, 'User', 'Super User of this application who can manage all kind of operation, Basically used for Developer', 55, 55, '2017-04-12 17:30:56', '2017-11-07 12:48:00', 1),
 (2, 'System Admin Manager', 'Limited access with almost all the features, Who have the super power in company', 55, 55, '2017-04-12 17:32:45', '2017-11-07 12:51:02', 1),
-(4, 'Chief Executive Officer', 'Chief Executive  Officer, No delete power', 55, 55, '2017-05-04 15:21:00', '2017-11-08 11:39:33', 1);
+(4, 'Chief Executive Officer', 'Chief Executive  Officer, No delete power', 55, 55, '2017-05-04 15:21:00', '2017-11-08 11:39:33', 1),
+(5, 'Teacher', 'Teacher', 1, 1, '2022-10-05 05:32:08', '2022-10-05 05:32:08', 1),
+(6, 'Student', 'Student', 1, 1, '2022-10-05 05:32:54', '2022-10-05 05:32:54', 1);
 
 -- --------------------------------------------------------
 
@@ -662,8 +715,8 @@ CREATE TABLE `users` (
   `role_id` varchar(200) DEFAULT NULL,
   `org_id` int(11) DEFAULT NULL,
   `full_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
   `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `gender` varchar(11) DEFAULT NULL,
   `contact_no` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -696,11 +749,18 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `org_id`, `full_name`, `first_name`, `last_name`, `email`, `gender`, `contact_no`, `username`, `password`, `designation`, `photo`, `status_id`, `friend_status`, `employee_status`, `employee_id`, `employee_designation`, `divisional_office`, `district_office`, `circle_office`, `phn_personal`, `email_personal`, `process_sms_alert`, `remember_token`, `created_by`, `updated_by`, `created_at`, `updated_at`, `profile_image`, `profile_banner`) VALUES
-(1, '7', NULL, 'System', 'System', 'administrator', 'admin@admin.com', NULL, NULL, 'admin', '$2y$10$DGXfPihHBrxoAzBVt/T8Ne9YZh8Aph/ey8I.DzOiE0QDahCit74si', NULL, '6336ef35057b8899048ab0cc455154006fdb9676964b3.jpg', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'km6FWLhD7oxC9lJk9EdUj51KtiMSxghzmlNYSLndT9ZhqLwbnJvDebBSzfwU', 44, 1, '2015-02-15 04:21:06', '2022-09-30 13:29:25', '72805.png', '72805.jpg'),
-(811, '1', NULL, 'rasel', '', '', 'a@gmail.com', 'male', NULL, 'rasel', '$2y$10$vdMJj9plQE8S70UdQc5Gge1E9itvPo36ev2o3j9Lx2XSh59M2bs1i', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:22:46', '2022-09-12 17:22:46', NULL, NULL),
+(1, '7', NULL, 'System', 'System', 'administrator', 'admin@admin.com', NULL, NULL, 'admin', '$2y$10$DGXfPihHBrxoAzBVt/T8Ne9YZh8Aph/ey8I.DzOiE0QDahCit74si', NULL, '6336ef35057b8899048ab0cc455154006fdb9676964b3.jpg', 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'gFRKwQTaMhNe3gKSvTn69TyNCTAyrodIO6NTa7SbZ9U6NNZddSYOFrFc0u7u', 44, 1, '2015-02-15 04:21:06', '2022-09-30 13:29:25', '72805.png', '72805.jpg'),
+(811, '1', NULL, 'MD. Rasel', '', '', 'a@gmail.com', 'male', NULL, 'rasel', '$2y$10$vdMJj9plQE8S70UdQc5Gge1E9itvPo36ev2o3j9Lx2XSh59M2bs1i', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:22:46', '2022-10-05 13:39:38', '21569.jfif', '21569.jpg'),
 (810, '1', NULL, 'ridoy', '', '', 'admind@gmail.com', 'male', NULL, 'ridoy', '$2y$10$SPHzQTwTi8vCBCzFB6zU1OMvD.xTv8/N57wf24.kdKBu1dxF/9p1m', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:20:16', '2022-09-12 17:20:16', NULL, NULL),
-(2, '1', NULL, 'Meheraz', '', '', 'admin@gmail.com', 'male', NULL, 'Meheraz1', '$2y$10$FpN46FmcvQjW5bFzXmRWeOd03QPbhO4F4cg1E2y5TPsX7dK7H.Z0u', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:08:54', '2022-09-28 11:33:11', '119767.jpg', '119767.jpg'),
-(812, '1', NULL, 'Meheraz istiak', '', '', 'f@gmail.com', 'male', NULL, 'meheraz', '$2y$10$pS485Qb3MpFSk9QrfO0wJ.EDYLLnW/TlkQERtVCA97RSRsXLyGPg6', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-16 17:04:50', '2022-09-16 17:04:50', NULL, NULL);
+(2, '1', NULL, 'Md opu', '', '', 'admin@gmail.com', 'male', NULL, 'Md opu', '$2y$10$FpN46FmcvQjW5bFzXmRWeOd03QPbhO4F4cg1E2y5TPsX7dK7H.Z0u', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-12 17:08:54', '2022-09-28 11:33:11', '119767.jpg', '119767.jpg'),
+(812, '1', NULL, 'Meheraz istiak', '', '', 'f@gmail.com', 'male', NULL, 'meheraz', '$2y$10$pS485Qb3MpFSk9QrfO0wJ.EDYLLnW/TlkQERtVCA97RSRsXLyGPg6', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-09-16 17:04:50', '2022-10-03 06:13:37', '62603.png', '62603.jfif'),
+(813, 'teacher', NULL, 'Tuhedul', NULL, NULL, 't@gmail.com', 'male', NULL, 'tuhedul', '$2y$10$3N0lZdtls5JjdYglsksCye402BtVeVkUFw5l0Xt8kw0OyioaCjRii', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-05 05:59:21', '2022-10-05 05:59:21', NULL, NULL),
+(814, 'teacher', NULL, 'Tuhedul Islam', NULL, NULL, 't_@gmail.com', 'male', NULL, 'tuhedul_', '$2y$10$fhkeH70eeHJL6kuXOxDATevjqEwkdDCtfeFWjIIZd5BKm6uQNsLKG', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-05 06:04:44', '2022-10-05 06:04:44', NULL, NULL),
+(815, 'teacher', NULL, 'asda', NULL, NULL, 't1@gmail.com', 'male', NULL, 'ttttt', '$2y$10$PF1fmup7fNBDm.JFdrdc5OE4ufCQsKwT9Bb83V/WtXm7PRIO9q1we', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-05 06:05:39', '2022-10-05 06:05:39', NULL, NULL),
+(816, 'teacher', NULL, 'sdfds', NULL, NULL, 'tt@gmail.com', 'male', NULL, 'tt', '$2y$10$pwC6C/9C15HtjBnqeraF2.cVQTI9O28xsTbXJ/aGbppSAMvMvQfue', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-05 06:07:27', '2022-10-05 06:07:27', NULL, NULL),
+(817, '5', NULL, 'renbo', ' ', ' ', 'r@gmail.com', 'male', NULL, 'rendo2', '$2y$10$nyXEK3XbDwo97LM5aUyFN.Aek7IDpeKxXxWxottil8EZ.2gUOwvG2', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-05 06:31:12', '2022-10-05 06:31:12', NULL, NULL),
+(818, '6', NULL, 'shahed', ' ', ' ', 'shahed@gmail.com', 'male', NULL, 'shahed', '$2y$10$/6p218PJklr2OdXFESwHBuGEfro3fYQlc6DVAcrHsM4lg2QAvNqX6', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-05 10:21:44', '2022-10-05 10:21:44', NULL, NULL),
+(819, '6', NULL, 'rifat', ' ', ' ', 'rifat@gmail.com', 'male', NULL, 'rifat', '$2y$10$YIe/iLhwgU/qiclACDyzOuIM3Ypz3AcfeSdGYGjtvSSz7KCe.SS5G', NULL, NULL, 1, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2022-10-05 10:25:58', '2022-10-05 10:25:58', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -716,6 +776,12 @@ ALTER TABLE `activity`
 -- Indexes for table `create_pages`
 --
 ALTER TABLE `create_pages`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `elibrarys`
+--
+ALTER TABLE `elibrarys`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -768,6 +834,12 @@ ALTER TABLE `module_to_user`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `page_posts`
+--
+ALTER TABLE `page_posts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
@@ -811,7 +883,13 @@ ALTER TABLE `activity`
 -- AUTO_INCREMENT for table `create_pages`
 --
 ALTER TABLE `create_pages`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=813;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=815;
+
+--
+-- AUTO_INCREMENT for table `elibrarys`
+--
+ALTER TABLE `elibrarys`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -823,7 +901,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `friends`
 --
 ALTER TABLE `friends`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `language`
@@ -862,16 +940,22 @@ ALTER TABLE `module_to_user`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8990;
 
 --
+-- AUTO_INCREMENT for table `page_posts`
+--
+ALTER TABLE `page_posts`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `settings`
@@ -883,7 +967,7 @@ ALTER TABLE `settings`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=813;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=820;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

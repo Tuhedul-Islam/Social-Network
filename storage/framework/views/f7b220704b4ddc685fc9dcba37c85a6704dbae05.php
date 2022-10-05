@@ -1,11 +1,11 @@
-@extends('frontend.index')
 
-@section('header')
+
+<?php $__env->startSection('header'); ?>
 <section>
 		<div class="feature-photo">
-			<figure><img src="{{asset('public/profile/profile_banner/'.$image->profile_banner)}}" alt=""></figure>
+			<figure><img src="<?php echo e(asset('public/profile/profile_banner/'.$image->profile_banner)); ?>" alt=""></figure>
 			<div class="add-btn">
-				<span>{{$requestcount}} followers</span>
+				<span><?php echo e($requestcount); ?> followers</span>
 				<a href="#" title="" data-ripple="">Add Friend</a>
 			</div>
 			<form class="edit-phto">
@@ -20,7 +20,7 @@
 					<div class="col-lg-2 col-sm-3">
 						<div class="user-avatar">
 							<figure>
-								<img src="{{asset('public/profile/profile_image/'.$image->profile_image)}}" alt="">
+								<img src="<?php echo e(asset('public/profile/profile_image/'.$image->profile_image)); ?>" alt="">
 								<form class="edit-phto">
 									<i class="fa fa-camera-retro"></i>
 									<label class="fileContainer">
@@ -35,16 +35,16 @@
 						<div class="timeline-info">
 							<ul>
 								<li class="admin-name">
-								 <h5>{{Auth::user()->full_name}}</h5>
-								  <span>{{Auth::user()->email}}</span>
+								 <h5><?php echo e(Auth::user()->full_name); ?></h5>
+								  <span><?php echo e(Auth::user()->email); ?></span>
 								</li>
 								<li>
-									<a class="" href="{{route('frontend.timeline')}}" title="" data-ripple="">time line</a>
-									<a class="" href="{{route('frontend.photopage')}}" title="" data-ripple="">Photos</a>
-									<!-- <a class="" href="{{route('frontend.videospage')}}" title="" data-ripple="">Videos</a> -->
-									<a class="" href="{{route('frontend.friendspage')}}" title="" data-ripple="">Friends</a>
-									<!-- <a class="" href="{{route('frontend.groupspage')}}" title="" data-ripple="">Groups</a> -->
-									<a class="" href="{{route('frontend.aboutpage')}}" title="" data-ripple="">about</a>
+									<a class="" href="<?php echo e(route('frontend.timeline')); ?>" title="" data-ripple="">time line</a>
+									<a class="" href="<?php echo e(route('frontend.photopage')); ?>" title="" data-ripple="">Photos</a>
+									<!-- <a class="" href="<?php echo e(route('frontend.videospage')); ?>" title="" data-ripple="">Videos</a> -->
+									<a class="" href="<?php echo e(route('frontend.friendspage')); ?>" title="" data-ripple="">Friends</a>
+									<!-- <a class="" href="<?php echo e(route('frontend.groupspage')); ?>" title="" data-ripple="">Groups</a> -->
+									<a class="" href="<?php echo e(route('frontend.aboutpage')); ?>" title="" data-ripple="">about</a>
 									
 								</li>
 							</ul>
@@ -55,10 +55,10 @@
 		</div>
 	</section><!-- top area -->
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="col-lg-6">
 								<div class="central-meta">
 									<div class="messages">
@@ -69,7 +69,7 @@
 												<li>
 													
 													<figure>
-														<img src="{{asset('public/frontend/images/resources/friend-avatar2.jpg')}}" alt="">
+														<img src="<?php echo e(asset('public/frontend/images/resources/friend-avatar2.jpg')); ?>" alt="">
 														<span class="status f-online"></span>
 													</figure>
 													<div class="people-name">
@@ -78,7 +78,7 @@
 												</li>
 												<li>
 													
-													<figure><img src="{{asset('public/frontend/images/resources/friend-avatar3.jpg')}}" alt="">
+													<figure><img src="<?php echo e(asset('public/frontend/images/resources/friend-avatar3.jpg')); ?>" alt="">
 														<span class="status f-away"></span>
 													</figure>
 													<div class="people-name">
@@ -88,7 +88,7 @@
 												<li>
 													
 													<figure>
-														<img src="{{asset('public/frontend/images/resources/friend-avatar.jpg')}}" alt="">
+														<img src="<?php echo e(asset('public/frontend/images/resources/friend-avatar.jpg')); ?>" alt="">
 														<span class="status f-online"></span>
 													</figure>
 													
@@ -98,7 +98,7 @@
 												</li>
 												<li>
 													
-													<figure><img src="{{asset('public/frontend/images/resources/friend-avatar4.jpg')}}" alt="">
+													<figure><img src="<?php echo e(asset('public/frontend/images/resources/friend-avatar4.jpg')); ?>" alt="">
 														<span class="status off-online"></span>
 													</figure>
 													<div class="people-name">
@@ -107,7 +107,7 @@
 												</li>
 												<li>
 													
-													<figure><img src="{{asset('public/frontend/images/resources/friend-avatar5.jpg')}}" alt="">
+													<figure><img src="<?php echo e(asset('public/frontend/images/resources/friend-avatar5.jpg')); ?>" alt="">
 														<span class="status f-online"></span>
 													</figure>
 													<div class="people-name">
@@ -116,7 +116,7 @@
 												</li>
 												<li>
 													
-													<figure><img src="{{asset('public/frontend/images/resources/friend-avatar6.jpg')}}" alt="">
+													<figure><img src="<?php echo e(asset('public/frontend/images/resources/friend-avatar6.jpg')); ?>" alt="">
 														<span class="status f-away"></span>
 													</figure>
 													<div class="people-name">
@@ -125,7 +125,7 @@
 												</li>
 												<li>
 													
-													<figure><img src="{{asset('public/frontend/images/resources/friend-avatar7.jpg')}}" alt="">
+													<figure><img src="<?php echo e(asset('public/frontend/images/resources/friend-avatar7.jpg')); ?>" alt="">
 														<span class="status off-online"></span>
 													</figure>
 													<div class="people-name">
@@ -134,7 +134,7 @@
 												</li>
 												<li>
 													
-													<figure><img src="{{asset('public/frontend/images/resources/friend-avatar8.jpg')}}" alt="">
+													<figure><img src="<?php echo e(asset('public/frontend/images/resources/friend-avatar8.jpg')); ?>" alt="">
 														<span class="status f-online"></span>
 													</figure>
 													<div class="people-name">
@@ -143,7 +143,7 @@
 												</li>
 												<li>
 													
-													<figure><img src="{{asset('public/frontend/images/resources/friend-avatar6.jpg')}}" alt="">
+													<figure><img src="<?php echo e(asset('public/frontend/images/resources/friend-avatar6.jpg')); ?>" alt="">
 														<span class="status f-online"></span>
 													</figure>
 													<div class="people-name">
@@ -153,36 +153,36 @@
 											</ul>
 											<div class="peoples-mesg-box">
 												<div class="conversation-head">
-													<figure><img src="{{asset('public/frontend/images/resources/friend-avatar.jpg')}}" alt=""></figure>
+													<figure><img src="<?php echo e(asset('public/frontend/images/resources/friend-avatar.jpg')); ?>" alt=""></figure>
 													<span>jason bourne <i>online</i></span>
 												</div>
 												<ul class="chatting-area">
 													<li class="you">
-														<figure><img src="{{asset('public/frontend/images/resources/userlist-2.jpg')}}" alt=""></figure>
+														<figure><img src="<?php echo e(asset('public/frontend/images/resources/userlist-2.jpg')); ?>" alt=""></figure>
 														<p>what's liz short for? :)</p>
 													</li>
 													<li class="me">
-														<figure><img src="{{asset('public/frontend/images/resources/userlist-1.jpg')}}" alt=""></figure>
+														<figure><img src="<?php echo e(asset('public/frontend/images/resources/userlist-1.jpg')); ?>" alt=""></figure>
 														<p>Elizabeth lol</p>
 													</li>
 													<li class="me">
-														<figure><img src="{{asset('public/frontend/images/resources/userlist-1.jpg')}}" alt=""></figure>
+														<figure><img src="<?php echo e(asset('public/frontend/images/resources/userlist-1.jpg')); ?>" alt=""></figure>
 														<p>wanna know whats my second guess was?</p>
 													</li>
 													<li class="you">
-														<figure><img src="{{asset('public/frontend/images/resources/userlist-2.jpg')}}" alt=""></figure>
+														<figure><img src="<?php echo e(asset('public/frontend/images/resources/userlist-2.jpg')); ?>" alt=""></figure>
 														<p>yes</p>
 													</li>
 													<li class="me">
-														<figure><img src="{{asset('public/frontend/images/resources/userlist-1.jpg')}}" alt=""></figure>
+														<figure><img src="<?php echo e(asset('public/frontend/images/resources/userlist-1.jpg')); ?>" alt=""></figure>
 														<p>Disney's the lizard king</p>
 													</li>
 													<li class="me">
-														<figure><img src="{{asset('public/frontend/images/resources/userlist-1.jpg')}}" alt=""></figure>
+														<figure><img src="<?php echo e(asset('public/frontend/images/resources/userlist-1.jpg')); ?>" alt=""></figure>
 														<p>i know him 5 years ago</p>
 													</li>
 													<li class="you">
-														<figure><img src="{{asset('public/frontend/images/resources/userlist-2.jpg')}}" alt=""></figure>
+														<figure><img src="<?php echo e(asset('public/frontend/images/resources/userlist-2.jpg')); ?>" alt=""></figure>
 														<p>coooooooooool dude ;)</p>
 													</li>
 												</ul>
@@ -197,4 +197,5 @@
 									</div>
 								</div>	
 							</div><!-- centerl meta -->
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.index', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\xampp\htdocs\Mproject\social-network\resources\views/frontend/page/massage_box.blade.php ENDPATH**/ ?>

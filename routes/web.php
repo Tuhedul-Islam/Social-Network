@@ -218,6 +218,7 @@ Route::group(['middleware'=>'authCheck'],function (){
 
         Route::get('timeline-create_page', [FrontendController::class, 'create_page'])->name('creatpage');
         Route::get('timeline-edit_password', [FrontendController::class, 'edit_password'])->name('edit_password');
+        Route::post('update_password', [FrontendController::class, 'update_password'])->name('update_password');
         Route::get('timeline-massage_box', [FrontendController::class, 'massage_box'])->name('massagebox');
         Route::get('timeline-notification_page', [FrontendController::class, 'notification_page'])->name('notification_page');
 
@@ -272,6 +273,8 @@ Route::group(['middleware'=>'authCheck'],function (){
       Route::post('page-post', '\App\Http\Controllers\my_pageController@store')->name('store'); 
 
       Route::get('view-my-page/{id}', '\App\Http\Controllers\my_pageController@view_page')->name('view_page'); 
+
+      Route::get('view-my-page-post/{id}', '\App\Http\Controllers\my_pageController@view_page_post')->name('view_page_post'); 
     });
 
 

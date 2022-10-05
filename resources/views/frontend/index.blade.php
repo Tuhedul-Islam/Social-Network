@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
+     <?php
+        $settings=\App\Models\Settings::find(1);
+      ?>
 	<title>Social Network</title>
-    <link rel="icon" href="{{asset('public/frontend/images/fav.png')}}" type="image/png" sizes="16x16"> 
+    <link rel="icon" href="{!! asset($settings->favicon) !!}" type="image/png" sizes="16x16"> 
     
     
     @include('frontend.css')

@@ -34,12 +34,16 @@
                     <tr>
                         
                         <td>{{$loop->iteration}}</td>
+
                         <td>{{$data->title}}</td>
-                        <td><a href="{{asset('public/post/document/'.$data->document)}}" download><i class="fa fa-download" aria-hidden="true"></i></a></td>
+
+                        <td><a href="{{asset('public/post/document/'.$data->document)}}" download><i class="fa fa-download" aria-hidden="true"></i></a>
+                        </td>
                             
                         <td>
                         	@if(Auth::user()->id == $data->created_by)
-                            <a href="{{route('elibrary.edit',$data->id)}}" class="btn btn-info btn-xs" > <i class="fa fa-edit"></i></a>
+
+                            <!-- <a href="{{route('elibrary.edit',$data->id)}}" class="btn btn-info btn-xs" > <i class="fa fa-edit"></i></a> -->
                             <a href="{{route('elibrary.delete',$data->id)}}" class="btn btn-danger btn-xs" > <i class="fa fa-trash"></i></a>
                             @endif
 
