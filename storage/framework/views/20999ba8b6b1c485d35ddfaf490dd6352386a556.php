@@ -1,22 +1,22 @@
 
 <div class="widget friend-list stick-widget">
 	<h4 class="widget-title">Followers</h4>
-	@foreach($myfriends as $data)
+	<?php $__currentLoopData = $myfriends; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 			<div id="searchDir"></div>
 			
 			<ul id="people-list" class="friendz-list" style="margin-bottom: -42px;">
 				<li>
 					<figure>
-						<img src="{{asset('public/frontend/images/resources/friend-avatar.jpg')}}" alt="">
+						<img src="<?php echo e(asset('public/frontend/images/resources/friend-avatar.jpg')); ?>" alt="">
 						<span class="status f-online"></span>
 					</figure>
 					<div class="friendz-meta">
-						<a href="time-line.html">{{$data->full_name}}</a>
-						<i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a0d7c9ced4c5d2d3cfccc4c5d2e0c7cdc1c9cc8ec3cfcd">{{$data->email}}</a></i>
+						<a href="time-line.html"><?php echo e($data->full_name); ?></a>
+						<i><a href="https://wpkixx.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a0d7c9ced4c5d2d3cfccc4c5d2e0c7cdc1c9cc8ec3cfcd"><?php echo e($data->email); ?></a></i>
 					</div>
 				</li>	
 			</ul>
-			@endforeach
+			<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 			<div class="chat-box">
 				<div class="chat-head">
 					<span class="status f-online"></span>
@@ -29,7 +29,7 @@
 				<div class="chat-list">
 					<ul>
 						<li class="me">
-							<div class="chat-thumb"><img src="{{asset('public/frontend/images/resources/chatlist1.jpg')}}" alt=""></div>
+							<div class="chat-thumb"><img src="<?php echo e(asset('public/frontend/images/resources/chatlist1.jpg')); ?>" alt=""></div>
 							<div class="notification-event">
 								<span class="chat-message-item">
 									Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
@@ -38,7 +38,7 @@
 							</div>
 						</li>
 						<li class="you">
-							<div class="chat-thumb"><img src="{{asset('frontend/images/resources/chatlist2.jpg')}}" alt=""></div>
+							<div class="chat-thumb"><img src="<?php echo e(asset('frontend/images/resources/chatlist2.jpg')); ?>" alt=""></div>
 							<div class="notification-event">
 								<span class="chat-message-item">
 									Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
@@ -47,7 +47,7 @@
 							</div>
 						</li>
 						<li class="me">
-							<div class="chat-thumb"><img src="{{asset('public/frontend/images/resources/chatlist1.jpg')}}" alt=""></div>
+							<div class="chat-thumb"><img src="<?php echo e(asset('public/frontend/images/resources/chatlist1.jpg')); ?>" alt=""></div>
 							<div class="notification-event">
 								<span class="chat-message-item">
 									Hi James! Please remember to buy the food for tomorrow! I’m gonna be handling the gifts and Jake’s gonna get the drinks
@@ -78,4 +78,4 @@
 						<button type="submit"></button>
 					</form>
 				</div>
-	</div><!-- friends list sidebar -->
+	</div><!-- friends list sidebar --><?php /**PATH C:\xampp\htdocs\social-network\resources\views/frontend/rightsidebar.blade.php ENDPATH**/ ?>
