@@ -1,34 +1,34 @@
 <div class="topbar stick">
 		<div class="logo">
-			<a title="" href="newsfeed.html"><img src="{{asset('public/frontend/images/logo.png')}}" alt=""></a>
+			<a title="" href="newsfeed.html"><img src="<?php echo e(asset('public/frontend/images/logo.png')); ?>" alt=""></a>
 		</div>
 		
 		<div class="top-area">
 			
 			<ul class="main-menu">
 				<li>
-					<a href="{{route('frontend.index')}}" title="">Home</a>
+					<a href="<?php echo e(route('frontend.index')); ?>" title="">Home</a>
 					
 				</li>
 				<li>
-					<a href="{{route('frontend.timeline')}}" title="">timeline</a>
+					<a href="<?php echo e(route('frontend.timeline')); ?>" title="">timeline</a>
 					
 				</li>
 				<li>
 					<a href="#" title="">account settings</a>
 					<ul>
-						<li><a href="{{route('frontend.creatpage')}}" title="">create fav page</a></li>
+						<li><a href="<?php echo e(route('frontend.creatpage')); ?>" title="">create fav page</a></li>
 						
-						<li><a href="{{route('frontend.edit_password')}}" title="">edit-password</a></li>
+						<li><a href="<?php echo e(route('frontend.edit_password')); ?>" title="">edit-password</a></li>
 						
-						<li><a href="{{route('frontend.massagebox')}}" title="">message box</a></li>
+						<li><a href="<?php echo e(route('frontend.massagebox')); ?>" title="">message box</a></li>
 						
-						<li><a href="{{route('frontend.notification_page')}}" title="">notifications page</a></li>
+						<li><a href="<?php echo e(route('frontend.notification_page')); ?>" title="">notifications page</a></li>
 					</ul>
 				</li>
 
 				<li>
-					<a href="{{route('elibrary.index')}}" title="">E-library</a>
+					<a href="<?php echo e(route('elibrary.index')); ?>" title="">E-library</a>
 					
 				</li>
 				
@@ -53,7 +53,7 @@
 						<ul class="drops-menu">
 							<li>
 								<a href="notifications.html" title="">
-									<img src="{{asset('public/frontend/images/resources/thumb-1.jpg')}}" alt="">
+									<img src="<?php echo e(asset('public/frontend/images/resources/thumb-1.jpg')); ?>" alt="">
 									<div class="mesg-meta">
 										<h6>sarah Loren</h6>
 										<span>Hi, how r u dear ...?</span>
@@ -64,7 +64,7 @@
 							</li>
 							<li>
 								<a href="notifications.html" title="">
-									<img src="{{asset('public/frontend/images/resources/thumb-2.jpg')}}" alt="">
+									<img src="<?php echo e(asset('public/frontend/images/resources/thumb-2.jpg')); ?>" alt="">
 									<div class="mesg-meta">
 										<h6>Jhon doe</h6>
 										<span>Hi, how r u dear ...?</span>
@@ -75,7 +75,7 @@
 							</li>
 							<li>
 								<a href="notifications.html" title="">
-									<img src="{{asset('public/frontend/images/resources/thumb-3.jpg')}}" alt="">
+									<img src="<?php echo e(asset('public/frontend/images/resources/thumb-3.jpg')); ?>" alt="">
 									<div class="mesg-meta">
 										<h6>Andrew</h6>
 										<span>Hi, how r u dear ...?</span>
@@ -86,7 +86,7 @@
 							</li>
 							<li>
 								<a href="notifications.html" title="">
-									<img src="{{asset('public/frontend/images/resources/thumb-4.jpg')}}" alt="">
+									<img src="<?php echo e(asset('public/frontend/images/resources/thumb-4.jpg')); ?>" alt="">
 									<div class="mesg-meta">
 										<h6>Tom cruse</h6>
 										<span>Hi, how r u dear ...?</span>
@@ -97,7 +97,7 @@
 							</li>
 							<li>
 								<a href="notifications.html" title="">
-									<img src="{{asset('public/frontend/images/resources/thumb-5.jpg')}}" alt="">
+									<img src="<?php echo e(asset('public/frontend/images/resources/thumb-5.jpg')); ?>" alt="">
 									<div class="mesg-meta">
 										<h6>Amy</h6>
 										<span>Hi, how r u dear ...?</span>
@@ -117,7 +117,7 @@
 						<ul class="drops-menu">
 							<li>
 								<a href="notifications.html" title="">
-									<img src="{{asset('public/frontend/images/resources/thumb-1.jpg')}}" alt="">
+									<img src="<?php echo e(asset('public/frontend/images/resources/thumb-1.jpg')); ?>" alt="">
 									<div class="mesg-meta">
 										<h6>sarah Loren</h6>
 										<span>Hi, how r u dear ...?</span>
@@ -128,7 +128,7 @@
 							</li>
 							<li>
 								<a href="notifications.html" title="">
-									<img src="{{asset('public/frontend/images/resources/thumb-2.jpg')}}" alt="">
+									<img src="<?php echo e(asset('public/frontend/images/resources/thumb-2.jpg')); ?>" alt="">
 									<div class="mesg-meta">
 										<h6>Jhon doe</h6>
 										<span>Hi, how r u dear ...?</span>
@@ -139,7 +139,7 @@
 							</li>
 							<li>
 								<a href="notifications.html" title="">
-									<img src="{{asset('public/frontend/images/resources/thumb-3.jpg')}}" alt="">
+									<img src="<?php echo e(asset('public/frontend/images/resources/thumb-3.jpg')); ?>" alt="">
 									<div class="mesg-meta">
 										<h6>Andrew</h6>
 										<span>Hi, how r u dear ...?</span>
@@ -150,7 +150,7 @@
 							</li>
 							<li>
 								<a href="notifications.html" title="">
-									<img src="{{asset('public/frontend/images/resources/thumb-4.jpg')}}" alt="">
+									<img src="<?php echo e(asset('public/frontend/images/resources/thumb-4.jpg')); ?>" alt="">
 									<div class="mesg-meta">
 										<h6>Tom cruse</h6>
 										<span>Hi, how r u dear ...?</span>
@@ -161,7 +161,7 @@
 							</li>
 							<li>
 								<a href="notifications.html" title="">
-									<img src="{{asset('public/frontend/images/resources/thumb-5.jpg')}}" alt="">
+									<img src="<?php echo e(asset('public/frontend/images/resources/thumb-5.jpg')); ?>" alt="">
 									<div class="mesg-meta">
 										<h6>Amy</h6>
 										<span>Hi, how r u dear ...?</span>
@@ -184,7 +184,7 @@
 				</li>
 			</ul>
 			<div class="user-img">
-				<img src="{{asset('public/frontend/images/resources/admin.jpg')}}" alt="">
+				<img src="<?php echo e(asset('public/frontend/images/resources/admin.jpg')); ?>" alt="">
 				<span class="status f-online"></span>
 				<!-- <div class="user-setting">
 					<a href="#" title=""><span class="status f-online"></span>online</a>
@@ -194,12 +194,12 @@
 					<a href="" title=""><i class="ti-pencil-alt"></i>edit profile</a>
 					<a href="#" title=""><i class="ti-target"></i>activity log</a>
 					<a href="#" title=""><i class="ti-settings"></i>account setting</a>
-					<a href="{{ URL::to('logout') }}" title=""><i class="ti-power-off"></i>log out</a>
+					<a href="<?php echo e(URL::to('logout')); ?>" title=""><i class="ti-power-off"></i>log out</a>
 					<i class="ti-power-off"></i>
-												<a href="{{ URL::to('logout') }}" title="">Logout</a>
+												<a href="<?php echo e(URL::to('logout')); ?>" title="">Logout</a>
 				</div> -->
 			</div>
 			<!-- <span class="ti-menu main-menu" data-ripple=""></span> -->
 		</div>
 	</div><!-- topbar -->
-	
+	<?php /**PATH D:\xampp\htdocs\Mproject\social-network\resources\views/frontend/header.blade.php ENDPATH**/ ?>

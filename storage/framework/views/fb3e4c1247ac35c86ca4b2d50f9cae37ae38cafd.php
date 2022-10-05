@@ -7,10 +7,10 @@
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 	<title>Social Network</title>
-    <link rel="icon" href="{{asset('public/frontend/images/fav.png')}}" type="image/png" sizes="16x16"> 
+    <link rel="icon" href="<?php echo e(asset('public/frontend/images/fav.png')); ?>" type="image/png" sizes="16x16"> 
     
     
-    @include('frontend.css')
+    <?php echo $__env->make('frontend.css', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
    
 
 </head>
@@ -24,7 +24,7 @@
 				<a class="" href="#menu"><i class="fa fa-align-justify"></i></a>
 			</span>
 			<span class="mh-text">
-				<a href="newsfeed.html" title=""><img src="{{asset('public/frontend/images/logo2.png')}}" alt=""></a>
+				<a href="newsfeed.html" title=""><img src="<?php echo e(asset('public/frontend/images/logo2.png')); ?>" alt=""></a>
 			</span>
 			<span class="mh-btns-right">
 				<a class="fa fa-sliders" href="#shoppingbag"></a>
@@ -39,8 +39,8 @@
 	<!-- navbar silo -->
 	</div><!-- responsive header -->
 	
-	 @include('frontend.header')
-	 @yield('header')
+	 <?php echo $__env->make('frontend.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+	 <?php echo $__env->yieldContent('header'); ?>
 		
 	<section>
 		<div class="gap gray-bg">
@@ -50,16 +50,16 @@
 
 						<div class="row" id="page-contents">
 
-							@include('frontend.leftsidebar')
+							<?php echo $__env->make('frontend.leftsidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 							
-							@yield('content')
+							<?php echo $__env->yieldContent('content'); ?>
                             
 							<div class="col-lg-3">
 								<aside class="sidebar static">
 									
-									@yield('leftsidebar')
+									<?php echo $__env->yieldContent('leftsidebar'); ?>
 
-									@include('frontend.rightsidebar')
+									<?php echo $__env->make('frontend.rightsidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 								</aside>
 							</div>
@@ -139,9 +139,9 @@
 			</form>
 		</div><!-- side panel -->		
 	
- @include('frontend.js')
+ <?php echo $__env->make('frontend.js', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 </body>	
 
-</html>
+</html><?php /**PATH D:\xampp\htdocs\Mproject\social-network\resources\views/frontend/index.blade.php ENDPATH**/ ?>

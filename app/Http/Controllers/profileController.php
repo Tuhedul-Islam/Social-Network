@@ -66,7 +66,7 @@ class profileController extends Controller
     {
         $image = User::where('id',Auth::user()->id)->first();
         
-         $user = Auth::user();
+        $user = Auth::user();
         $approvedFriend=Friend::select('friend_id')->where('status',1)->get()->toArray();
         $approvedFriend=Arr::flatten($approvedFriend);
 

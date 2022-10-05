@@ -285,6 +285,20 @@ Route::group(['middleware'=>'authCheck'],function (){
 
     });
 
+  Route::group(['name' => 'elibrary', 'as' => 'elibrary.'], function () 
+    {
+
+      Route::get('e-Library', '\App\Http\Controllers\ElibraryController@index')->name('index'); 
+       Route::get('e-LibraryForm', '\App\Http\Controllers\ElibraryController@form')->name('form');
+      Route::post('e-Library-store', '\App\Http\Controllers\ElibraryController@store')->name('store'); 
+      Route::get('e-Library-list/{id}', '\App\Http\Controllers\ElibraryController@view')->name('view');
+      Route::get('e-Library-edit/{id}', '\App\Http\Controllers\ElibraryController@edit')->name('edit'); 
+      Route::get('e-Library-delete/{id}', '\App\Http\Controllers\ElibraryController@delete')->name('delete');
+      Route::post('e-Library-update/{id}', '\App\Http\Controllers\ElibraryController@update')->name('update');  
+
+
+    });
+
 
         
         

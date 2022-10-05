@@ -28,7 +28,7 @@ return array(
     'MEETING_ROOM' => 'MEETING ROOM',
     'CALENDER' => 'CALENDER',
     'REPORT' => 'REPORT',
-    'USER_INFO' => 'USER INFORMATION',
+    'USER_INFO' => 'MANAGE USERS/ROLES ',
     'USER_MANAGE' => 'User Management',
     'USER_ACCESS' => 'User Access',
     'ROLE_MANAGE' => 'Role Management',

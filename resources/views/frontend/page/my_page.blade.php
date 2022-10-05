@@ -35,8 +35,8 @@
 						<div class="timeline-info">
 							<ul>
 								<li class="admin-name">
-								  <h5>Janice Griffith</h5>
-								  <span>Group Admin</span>
+								  <h5>{{Auth::user()->full_name}}</h5>
+								  <span>{{Auth::user()->email}}</span>
 								</li>
 								
 							</ul>
