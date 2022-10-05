@@ -4729,6 +4729,7 @@ canvas {
     position: absolute;
     right: 10px;
     top: 0;
+    display: none;
 }
 
 .top-area > ul.main-menu > li > ul li {

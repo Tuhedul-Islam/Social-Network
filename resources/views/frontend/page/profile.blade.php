@@ -3,7 +3,7 @@
 @section('header')
 <section>
 		<div class="feature-photo">
-			<figure><img src="{{asset('public/frontend/images/resources/timeline-1.jpg')}}" alt=""></figure>
+			<figure><img src="{{asset('public/profile/profile_banner/'.$image->profile_banner)}}" alt=""></figure>
 			<div class="add-btn">
 				<span>{{$requestcount}} followers</span>
 				<a href="#" title="" data-ripple="">Add Friend</a>
@@ -20,7 +20,7 @@
 					<div class="col-lg-2 col-sm-3">
 						<div class="user-avatar">
 							<figure>
-								<img src="{{asset('public/frontend/images/resources/user-avatar.jpg')}}" alt="">
+								<img src="{{asset('public/profile/profile_image/'.$image->profile_image)}}" alt="">
 								<form class="edit-phto">
 									<i class="fa fa-camera-retro"></i>
 									<label class="fileContainer">
@@ -41,9 +41,9 @@
 								<li>
 									<a class="" href="{{route('frontend.timeline')}}" title="" data-ripple="">time line</a>
 									<a class="" href="{{route('frontend.photopage')}}" title="" data-ripple="">Photos</a>
-									<a class="" href="{{route('frontend.videospage')}}" title="" data-ripple="">Videos</a>
+									<!-- <a class="" href="{{route('frontend.videospage')}}" title="" data-ripple="">Videos</a> -->
 									<a class="" href="{{route('frontend.friendspage')}}" title="" data-ripple="">Friends</a>
-									<a class="" href="{{route('frontend.groupspage')}}" title="" data-ripple="">Groups</a>
+									<!-- <a class="" href="{{route('frontend.groupspage')}}" title="" data-ripple="">Groups</a> -->
 									<a class="active" href="{{route('frontend.aboutpage')}}" title="" data-ripple="">about</a>
 									
 								</li>

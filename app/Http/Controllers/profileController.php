@@ -64,6 +64,8 @@ class profileController extends Controller
 
     public function index()
     {
+        $image = User::where('id',Auth::user()->id)->first();
+        
          $user = Auth::user();
         $approvedFriend=Friend::select('friend_id')->where('status',1)->get()->toArray();
         $approvedFriend=Arr::flatten($approvedFriend);
@@ -75,6 +77,6 @@ class profileController extends Controller
                           ->where('delete_friend',0)
                          ->where('request_sent',1)
                          ->count();
-         return View('frontend.page.profile',compact('myfriends','requestcount','user'));  
+         return View('frontend.page.profile',compact('myfriends','requestcount','user','image'));  
     }
 }

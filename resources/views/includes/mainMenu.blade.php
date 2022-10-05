@@ -108,7 +108,7 @@ $currentPath = Request::path();
             <?php } ?>
 
 
-            <?php if (!empty($aclList[4][1]) || !empty($aclList[5][1])|| !empty($aclList[7][3])) { ?>
+            <!-- <?php if (!empty($aclList[4][1]) || !empty($aclList[5][1])|| !empty($aclList[7][3])) { ?>
             <li <?php $current = ($currentControllerName == 'language-management') ? 'active' : ''; ?> class="<?php echo $current; ?>">
                 <a href="#" class="text-decoration-none d-block"><span class="nav-label">{{ __(session()->get('localeVal').'.LANGUAGE_MANAGE') }}</span><span class="fa arrow"></span></a>
                 <ul class="list-group nav-second-level in collapse {{ ($currentControllerName == 'language-management')?'show':'' }}">
@@ -121,7 +121,7 @@ $currentPath = Request::path();
 
                 </ul>
             </li>
-            <?php } ?>
+            <?php } ?> -->
 
 
 
