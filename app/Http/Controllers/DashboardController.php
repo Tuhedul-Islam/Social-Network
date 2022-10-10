@@ -28,7 +28,7 @@ class DashboardController extends Controller
 
         $data['title']=Settings::select('site_title')->first();
 
-        $data['user']=User::where('role_id',1)->count();
+        $data['user']=User::where('role_id',1)->orWhere('role_id',5)->orWhere('role_id',6)->count();
 
 
         return view('dashboard.index', $data);
@@ -41,7 +41,8 @@ class DashboardController extends Controller
 
         $data['title']=Settings::select('site_title')->first();
 
-        $user = User::where('role_id',1)->get();
+        // $user = User::where('role_id',1)->get();
+        $user=User::where('role_id',1)->orWhere('role_id',5)->orWhere('role_id',6)->get();
 
         return view('old_frontend.all_user',$data,compact('user'));
     }
