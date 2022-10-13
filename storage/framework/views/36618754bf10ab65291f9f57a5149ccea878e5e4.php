@@ -11,13 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <title>{!! $settings->site_title !!}</title>
-    <link rel="icon" href="{!! asset($settings->favicon) !!}" type="image/png" sizes="16x16"> 
+    <title><?php echo $settings->site_title; ?></title>
+    <link rel="icon" href="<?php echo asset($settings->favicon); ?>" type="image/png" sizes="16x16"> 
     
-       <link rel="stylesheet" href="{{asset('public/frontend/css/main.min.css')}}">
-        <link rel="stylesheet" href="{{asset('public/frontend/css/style.css')}}">
-        <link rel="stylesheet" href="{{asset('public/frontend/css/color.css')}}">
-        <link rel="stylesheet" href="{{asset('public/frontend/css/responsive.css')}}">
+       <link rel="stylesheet" href="<?php echo e(asset('public/frontend/css/main.min.css')); ?>">
+        <link rel="stylesheet" href="<?php echo e(asset('public/frontend/css/style.css')); ?>">
+        <link rel="stylesheet" href="<?php echo e(asset('public/frontend/css/color.css')); ?>">
+        <link rel="stylesheet" href="<?php echo e(asset('public/frontend/css/responsive.css')); ?>">
 
 </head>
 <body>
@@ -28,12 +28,12 @@
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div class="land-featurearea">
                     <div class="land-meta">
-                        <h1>{{ $settings->site_title }}</h1>
+                        <h1><?php echo e($settings->site_title); ?></h1>
                         <p>
                             Join us in Our Comminty
                         </p>
                         <div class="friend-logo">
-                            <span><img src="{{asset('public/frontend/images/wink.png')}}" alt=""></span>
+                            <span><img src="<?php echo e(asset('public/frontend/images/wink.png')); ?>" alt=""></span>
                         </div>
                         <!-- <a href="#" title="" class="folow-me">Follow Us on</a> -->
                     </div>  
@@ -47,23 +47,26 @@
                      
                         <h2 class="log-title">Login</h2>
                             
-                        @if(Session::has('error'))
+                        <?php if(Session::has('error')): ?>
                             <div class='alert alert-danger alert-dismissable'>
                                 <a class="close" data-dismiss="alert" href="#">&times;</a>
                                 <i class='icon-remove-sign'></i>
-                                {{ Session::get('error') }}
-                            </div>
-                        @endif
+                                <?php echo e(Session::get('error')); ?>
 
-                        @if(Session::has('success'))
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if(Session::has('success')): ?>
                             <div class='alert alert-success alert-dismissable'>
                                 <a class="close" data-dismiss="alert" href="#">&times;</a>
                                 <i class='icon-remove-sign'></i>
-                                {{ Session::get('success') }}
-                            </div>
-                        @endif
+                                <?php echo e(Session::get('success')); ?>
 
-                        {!! Form::open(array('url' => 'login', 'class' => 'validate-form', 'autocomplete'=>'off')) !!}
+                            </div>
+                        <?php endif; ?>
+
+                        <?php echo Form::open(array('url' => 'login', 'class' => 'validate-form', 'autocomplete'=>'off')); ?>
+
                         
                             <div class="form-group">    
                               <input type="text" id="username" name="username" required="required"/>
@@ -84,7 +87,8 @@
 
                                 <button class="mtr-btn signup" type="button"><span>Register</span></button>
                             </div>
-                        {!! Form::close() !!}
+                        <?php echo Form::close(); ?>
+
 
 
                     </div>
@@ -94,7 +98,8 @@
 
                         
                            
-                        {!! Form::open(array('url' => 'register', 'class' => 'validate-form', 'autocomplete'=>'off')) !!}
+                        <?php echo Form::open(array('url' => 'register', 'class' => 'validate-form', 'autocomplete'=>'off')); ?>
+
                             <div class="form-group">    
                               <input type="text" name="full_name" required="required"/>
                               <label class="control-label" for="input">Full Name</label><i class="mtrl-select"></i>
@@ -121,7 +126,7 @@
                               </div>
 
                             </div>
-                            <div class="form-radio" style="margin-bottom: -70px;">
+                            <div class="form-radio">
 
                               <div class="radio">
                                 <label>
@@ -136,11 +141,6 @@
                               
                              <div class="form-group">    
                               <input type="hidden" name="status_id" value="1" required="required"/>
-                             
-                            </div>
-
-                             <div class="form-group">    
-                              <input type="hidden" name="panding_id" value="0" required="required"/>
                              
                             </div>
 
@@ -159,7 +159,8 @@
                                 <button class="mtr-btn" type="submit"><span>Register</span></button>
                                
                             </div>
-                        {!! Form::close() !!}
+                        <?php echo Form::close(); ?>
+
                     </div>
                 </div>
             </div>
@@ -168,11 +169,11 @@
 </div>
     
     <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="{{asset('public/frontend/js/main.min.js')}}"></script>
-    <script src="{{asset('public/frontend/js/script.js')}}"></script>
-    <script src="{{asset('public/frontend/js/map-init.js')}}"></script>
+    <script src="<?php echo e(asset('public/frontend/js/main.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('public/frontend/js/script.js')); ?>"></script>
+    <script src="<?php echo e(asset('public/frontend/js/map-init.js')); ?>"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8c55_YHLvDHGACkQscgbGLtLRdxBDCfI"></script>
 
 </body> 
 
-</html>
+</html><?php /**PATH C:\xampp\htdocs\social-network\resources\views/login.blade.php ENDPATH**/ ?>

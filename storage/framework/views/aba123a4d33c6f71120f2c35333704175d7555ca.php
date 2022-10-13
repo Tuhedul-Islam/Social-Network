@@ -1,12 +1,13 @@
-@extends('layouts.default')
-@section('content')
+
+<?php $__env->startSection('content'); ?>
     <div class="content animate-panel">
     	<div class="card">
     		<h2>User Control</h2>
         <div class="row">
             <div class="col-lg-12 text-center">
               <!--   <h2>
-                    {!! $title->site_title !!}
+                    <?php echo $title->site_title; ?>
+
                 </h2> -->
 
                 <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
@@ -24,27 +25,27 @@
             </tr>
         </thead>
         <tbody>
-            	@foreach($user as $data)
+            	<?php $__currentLoopData = $user; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 					<tr>
 						
-						<td>{{$loop->iteration}}</td>
-						<td>{{$data->full_name}}</td>
-						<td>{{$data->email}}</td>
-						<td> <img height="50px" width="40px" src="{{asset('public/profile/profile_image/'.$data->profile_image)}}" alt="not found"></td>
+						<td><?php echo e($loop->iteration); ?></td>
+						<td><?php echo e($data->full_name); ?></td>
+						<td><?php echo e($data->email); ?></td>
+						<td> <img height="50px" width="40px" src="<?php echo e(asset('public/profile/profile_image/'.$data->profile_image)); ?>" alt="not found"></td>
 
-						<td><button class="btn btn-primary"><a href="{{route('all_user_post',$data->id)}}" style="color:white;">All Post</a></button></td>
-						<td><button class="btn btn-success" ><a href="{{route('all_user_page',$data->id)}}"style="color:white;">All Page</a></button></td>
-						<!-- <td><button class="btn btn-warning" ><a href="{{route('all_user_friend',$data->id)}}"style="color:white;">All Friend</a></button></td> -->
+						<td><button class="btn btn-primary"><a href="<?php echo e(route('all_user_post',$data->id)); ?>" style="color:white;">All Post</a></button></td>
+						<td><button class="btn btn-success" ><a href="<?php echo e(route('all_user_page',$data->id)); ?>"style="color:white;">All Page</a></button></td>
+						<!-- <td><button class="btn btn-warning" ><a href="<?php echo e(route('all_user_friend',$data->id)); ?>"style="color:white;">All Friend</a></button></td> -->
 						 	
 						<td>
-							<a href="{{route('edit_user',$data->id)}}" class="btn btn-info btn-xs" > <i class="fas fa-pencil-alt"></i></a>
-							<a href="{{route('delete_user',$data->id)}}" class="btn btn-danger btn-xs" > <i class="fas fa-trash-alt"></i></a>
+							<a href="<?php echo e(route('edit_user',$data->id)); ?>" class="btn btn-info btn-xs" > <i class="fas fa-pencil-alt"></i></a>
+							<a href="<?php echo e(route('delete_user',$data->id)); ?>" class="btn btn-danger btn-xs" > <i class="fas fa-trash-alt"></i></a>
 							
 
 						</td>
 	
 					</tr>
-					@endforeach
+					<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           
         </tbody>
     </table>
@@ -58,10 +59,10 @@
     </div>
 
 
-@stop
+<?php $__env->stopSection(); ?>
 
 
-@section('js')
+<?php $__env->startSection('js'); ?>
 
 
 
@@ -101,4 +102,6 @@
     new $.fn.dataTable.FixedHeader( table );
          } );
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.default', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\social-network\resources\views/old_frontend/all_user.blade.php ENDPATH**/ ?>
