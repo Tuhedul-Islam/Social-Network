@@ -116,7 +116,11 @@
 			</ul>
 			<div class="user-img">
 				<img src="{{asset('public/frontend/images/resources/admin.jpg')}}" alt="">
+
 				<span class="status f-online"></span>
+
+
+			
 				<!-- <div class="user-setting">
 					<a href="#" title=""><span class="status f-online"></span>online</a>
 					<a href="#" title=""><span class="status f-away"></span>away</a>
@@ -130,6 +134,23 @@
 												<a href="{{ URL::to('logout') }}" title="">Logout</a>
 				</div> -->
 			</div>
+         
+			<div class="user-img">
+				
+				 @if((Auth::user()->role_id==5))
+
+				<img src="{{asset('public/frontend/images/resources/teacher.png')}}" alt="">
+
+				@elseif((Auth::user()->role_id==6))
+
+				<img src="{{asset('public/frontend/images/resources/student.png')}}" alt="">
+				
+				@else
+
+				@endif
+
+			</div>
+				
 			<!-- <span class="ti-menu main-menu" data-ripple=""></span> -->
 		</div>
 	</div><!-- topbar -->

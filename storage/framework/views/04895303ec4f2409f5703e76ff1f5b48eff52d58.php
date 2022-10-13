@@ -105,7 +105,7 @@
 							  <label class="control-label" for="input">Phone No.</label><i class="mtrl-select"></i>
 							</div>
 							<div class="form-group half ">
-							<h6>Banner Image</h6>	
+							<h6>Banner Image <span class="text-danger">*</span> <small class="text-warning">(Less Then 200 kb,1366X400 Pixel)</small></h6>	
 							  <input type="file" name="banner" required="required"/>
 							 
 							</div>

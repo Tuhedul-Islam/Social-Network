@@ -14,7 +14,7 @@ class RegisterNewUserController extends Controller
     public function RegisterNewUser(Request $request)
     {   
 
-       //dd($request->all());
+       // dd($request->all());
       $this->validate($request,[
             'full_name' => 'required',
             'username' => 'required',
@@ -48,6 +48,8 @@ class RegisterNewUserController extends Controller
         $input->gender = $request->input('gender');
         $input->email = $request->input('email');
         $input->status_id = $request->input('status_id');
+        $input->panding_id = $request->input('panding_id');
+        // dd($input);
         $input->save();
 
        return redirect('login')->with('success','User has been registered successfully');

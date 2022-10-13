@@ -39,7 +39,8 @@ Route::post('login', function (\Illuminate\Http\Request $request) {
     $user = array(
         'username' => $request->username,
         'password' => $request->password,
-        'status_id' => 1
+        'status_id' => 1,
+        'panding_id' => 1
     );
 
     if (Auth::attempt($user)) {
@@ -93,9 +94,16 @@ Route::group(['middleware'=>'authCheck'],function (){
 
         Route::get('all-user',[\App\Http\Controllers\DashboardController::class,'UserIndex']);
 
-        Route::get('edit-user/{id}', '\App\Http\Controllers\DashboardController@edit_user')->name('edit_user');
+        Route::get('approve-user',[\App\Http\Controllers\DashboardController::class,'approve_user']);
 
-        Route::get('delete-user/{id}', '\App\Http\Controllers\DashboardController@delete_user')->name('delete_user');
+        Route::get('change-user-status/{id}', '\App\Http\Controllers\DashboardController@change_user_status')->name('change-user-status');
+        Route::get('approve-post',[\App\Http\Controllers\DashboardController::class,'approve_post']);
+
+        Route::get('change-user-post-status/{id}', '\App\Http\Controllers\DashboardController@change_user_post_status')->name('change_user_post_status');
+
+        // Route::get('edit-user/{id}', '\App\Http\Controllers\DashboardController@edit_user')->name('edit_user');
+
+        // Route::get('delete-user/{id}', '\App\Http\Controllers\DashboardController@delete_user')->name('delete_user');
 
 
 

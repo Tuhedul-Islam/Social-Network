@@ -52,6 +52,7 @@
 														</li>
 														<input type="hidden" name="username" id="" class="form-control" value="">
 														<input type="hidden" name="user_id" id="" class="form-control" value="">
+														<input type="hidden" name="panding_post" id="" class="form-control" value="0">
 														<li>
 															<button type="submit">Post</button>
 														</li>

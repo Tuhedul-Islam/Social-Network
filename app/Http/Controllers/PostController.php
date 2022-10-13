@@ -15,7 +15,7 @@ class PostController extends Controller
     public function store(Request $request)
 
     {
-
+        // dd($request);
         $user = Auth::user();
         // dd($user);
         $input = new Post();
@@ -60,7 +60,8 @@ class PostController extends Controller
          }
         $input->username =$user->username;
         $input->user_id =$user->id;
-
+        $input->panding_post = $request->input('panding_post');
+       
         $input->save();
         return redirect()->back(); 
         

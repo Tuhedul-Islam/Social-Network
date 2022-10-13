@@ -232,6 +232,39 @@ class DashboardController extends Controller
      }
 
 
+     public function approve_user()
+     {
+        // dd('hello');
+       $approve_user = User::all();
+
+       return view('old_frontend.approve_user',compact('approve_user'));
+
+     }
+
+     public function change_user_status($id)
+     {
+        
+
+        $change_user_status = DB::table('users')->select('panding_id')->where('id',$id)->update(['panding_id'=>1]);
+        return back();
+     }
+
+     public function approve_post()
+     {
+        // dd('hello');
+       $approve_post = Post::all();
+
+       return view('old_frontend.approve_post',compact('approve_post'));
+
+     }
+
+     public function change_user_post_status($id)
+     {
+      $change_user_post_status = DB::table('posts')->select('panding_post')->where('id',$id)->update(['panding_post'=>1]);
+        return back();
+     }
+
+
     public function homePage()
     {
 

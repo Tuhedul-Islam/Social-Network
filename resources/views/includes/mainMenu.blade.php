@@ -52,6 +52,18 @@ $currentPath = Request::path();
                  <span ><i class="fa fa-user"></i></span>
             </li>
 
+            <li <?php $current = ($currentControllerName == 'approve-user') ? 'active' : ''; ?> class=" d-flex justify-content-between align-items-center pl-3 <?php echo $current; ?>" >
+                <a href="{!! URL::to('approve-user') !!}" class="text-decoration-none d-block">{{ __(session()->get('localeVal').'.APPROVE_USER') }}</a>
+                
+                 <span ><i class="fa fa-user"></i></span>
+            </li>
+
+            <li <?php $current = ($currentControllerName == 'approve-post') ? 'active' : ''; ?> class=" d-flex justify-content-between align-items-center pl-3 <?php echo $current; ?>" >
+                <a href="{!! URL::to('approve-post') !!}" class="text-decoration-none d-block">{{ __(session()->get('localeVal').'.APPROVE_POST') }}</a>
+                
+                 <span ><i class="fa fa-user"></i></span>
+            </li>
+
 
             <?php if (!empty($aclList[1][1]) || !empty($aclList[2][1])  || !empty($aclList[6][1]) || !empty($aclList[3][1])) { ?>
             <li <?php $current = (request::is('role') == 'role' || $currentControllerName == 'users' || $currentControllerName == 'roleacl' || $currentControllerName == 'useracl' || $currentControllerName == 'modulelist' || $currentControllerName == 'activitylist') ? 'active' : ''; ?> class="<?php echo $current; ?> ">

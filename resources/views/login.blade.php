@@ -121,7 +121,7 @@
                               </div>
 
                             </div>
-                            <div class="form-radio">
+                            <div class="form-radio" style="margin-bottom: -70px;">
 
                               <div class="radio">
                                 <label>
@@ -136,6 +136,11 @@
                               
                              <div class="form-group">    
                               <input type="hidden" name="status_id" value="1" required="required"/>
+                             
+                            </div>
+
+                             <div class="form-group">    
+                              <input type="hidden" name="panding_id" value="0" required="required"/>
                              
                             </div>
 

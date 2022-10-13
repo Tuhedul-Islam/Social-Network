@@ -32,7 +32,7 @@ class FrontendController extends Controller
         $postview = DB::table('posts')
                          ->leftJoin('users','users.id','posts.user_id')
                          ->select('posts.*','users.profile_image')
-                          
+                         ->where('panding_post',1)
                          ->get();
 
         $approvedFriend=Friend::select('friend_id')->where('status',1)->get()->toArray();

@@ -29,6 +29,9 @@ return array(
     'CALENDER' => 'CALENDER',
     'REPORT' => 'REPORT',
     'USER_INFO' => 'MANAGE USERS/ROLES ',
+
+    'APPROVE_USER' => 'APPROVE USER',
+    'APPROVE_POST' => 'APPROVE POST',
     'USER_MANAGE' => 'User Management',
     'USER_ACCESS' => 'User Access',
     'ROLE_MANAGE' => 'Role Management',
