@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Models\Page_post;
 use carbon\carbon;
 use Illuminate\Support\Facades\Auth;
+use Image;
 
 
 
@@ -34,9 +35,12 @@ class my_pageController extends Controller
      
         $date = Carbon::now()->format('his')+rand(1000,9999);
        
-        if($images = $request->file('image')){
+        if($images = $request->file('image'))
+        {
             $extention = $request->file('image')->getClientOriginalExtension();
             $imageName = $date.'.'.$extention;
+            $images = Image::make($image->getRealPath());
+            $images->resize(1366,400);
             $path = public_path('post/image');
             $images->move($path,$imageName);
 

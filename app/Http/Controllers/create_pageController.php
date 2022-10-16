@@ -22,6 +22,8 @@ use App\Models\Friend;
 
 use Illuminate\Support\Facades\DB;
 
+use Image;
+
 class create_pageController extends Controller
 {
    public function store(Request $request)
@@ -36,16 +38,21 @@ class create_pageController extends Controller
        
         
         $input->email = $request->input('email');
+
         $input->phone = $request->input('phone');
+
         $date = Carbon::now()->format('his')+rand(1000,9999);
-        if($images = $request->file('banner')){
+
+        
+       
+       if($images = $request->file('banner'))
+        {
             $extention = $request->file('banner')->getClientOriginalExtension();
             $imageName = $date.'.'.$extention;
+            $image_resize = Image::make($images->getRealPath());
+            $image_resize->resize(1366,400);
             $path = public_path('post/banner');
             $images->move($path,$imageName);
-
-
-           
             $input->banner = $imageName;
          }
 
